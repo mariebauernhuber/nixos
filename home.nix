@@ -21,5 +21,8 @@
 		xwayland.enable = true;
 	};
 
+	programs.waybar.enable = true;
+
 	home.file.".config/hypr".source = ./dots/hypr;
+	home.file.".config/waybar".source = ./dots/waybar;
 }
