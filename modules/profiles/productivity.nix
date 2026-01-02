@@ -5,6 +5,7 @@
     environment.systemPackages = with pkgs; [
       neovim
       unzip # DEP for neovim (stylua)
+      texliveFull
       zathura  # PDF viewer
     ];
 
