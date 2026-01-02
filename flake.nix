@@ -28,8 +28,8 @@
 			system = "x86_64-linux";
 			modules = [
 				./common.nix
-				./modules/profiles/productivity.nix
 				./hosts/t470s/hardware-configuration.nix
+				./modules/profiles/productivity.nix
 				home-manager.nixosModules.home-manager {
 					home-manager.useGlobalPkgs = true;
 					home-manager.useUserPackages = true;
