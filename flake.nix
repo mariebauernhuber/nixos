@@ -13,7 +13,7 @@
 		nixosConfigurations.nixos-desktop = nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
 			modules = [
-				./configuration.nix
+				./common.nix
 				./modules/profiles/gaming.nix
 				./modules/profiles/productivity.nix
 				home-manager.nixosModules.home-manager {
@@ -27,8 +27,9 @@
 		nixosConfigurations.nixos-laptop = nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
 			modules = [
-				./configuration.nix
+				./common.nix
 				./modules/profiles/productivity.nix
+				./hosts/t470s/hardware-configuration.nix
 				home-manager.nixosModules.home-manager {
 					home-manager.useGlobalPkgs = true;
 					home-manager.useUserPackages = true;
