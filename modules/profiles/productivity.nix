@@ -4,6 +4,7 @@
     # Productivity packages
     environment.systemPackages = with pkgs; [
       neovim
+      unzip # DEP for neovim (stylua)
       zathura  # PDF viewer
     ];
 
