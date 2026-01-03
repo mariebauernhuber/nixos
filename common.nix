@@ -12,6 +12,7 @@
   networking.hostName = "nixos"; # Define your hostname.
 
   networking.networkmanager.enable = true;
+  networking.wireless.enable = true;
 
   time.timeZone = "Europe/Berlin";
 
