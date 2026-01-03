@@ -57,6 +57,18 @@
 
   programs.git.enable = true;
 
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.settings = {
+  General = {
+    Enable = "Source,Sink,Media,Socket";
+  };
+};
+
+
+  services.pipewire.enable = true;
+  services.pipewire.pulse.enable = true;
+  services.blueman.enable = true;
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -64,6 +76,7 @@
   #  wget
   kitty
   killall
+  pavucontrol
   ];
 
   fonts.packages = with pkgs; [
