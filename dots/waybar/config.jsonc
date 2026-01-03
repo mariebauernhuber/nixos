@@ -26,10 +26,10 @@
 	"custom/lesson-warning"
     ],
     "custom/archlogo": {
-        "exec": "echo ''",
+        "exec": "echo ' '",
         "interval": 0,
         "format": "{}",
-        "tooltip-format": "Arch Linux BTW",
+        "tooltip-format": "NixOS BTW",
         "on-click": "alacritty -e bash -c 'fastfetch; $SHELL'"
     },
     "hyprland/workspaces": {
