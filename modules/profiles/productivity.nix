@@ -6,6 +6,7 @@
       neovim
       unzip # DEP for neovim (stylua)
       texliveFull
+      texlab
       zathura  # PDF viewer
     ];
 
