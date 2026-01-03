@@ -58,6 +58,8 @@
 
   programs.git.enable = true;
 
+  programs.nix-ld.enable = true;
+
   hardware.bluetooth.enable = true;
   hardware.bluetooth.settings = {
   General = {
