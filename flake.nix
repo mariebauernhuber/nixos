@@ -30,6 +30,7 @@
 				./common.nix
 				./hosts/t470s/hardware-configuration.nix
 				./modules/profiles/productivity.nix
+				./modules/misc.nix
 				home-manager.nixosModules.home-manager {
 					home-manager.useGlobalPkgs = true;
 					home-manager.useUserPackages = true;
