@@ -23,6 +23,8 @@
 
 	programs.waybar.enable = true;
 
+	programs.htop.enable = true;
+
 	home.file.".config/hypr".source = ./dots/hypr;
 	home.file.".config/waybar".source = ./dots/waybar;
 }
