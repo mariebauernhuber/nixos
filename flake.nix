@@ -15,7 +15,9 @@
 			modules = [
 				./common.nix
 				./hosts/desktop/hardware-configuration.nix
+				./modules/profiles/gaming.nix
 				./modules/profiles/productivity.nix
+				./modules/misc.nix
 				home-manager.nixosModules.home-manager {
 					home-manager.useGlobalPkgs = true;
 					home-manager.useUserPackages = true;
