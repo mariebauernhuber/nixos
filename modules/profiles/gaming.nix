@@ -1,8 +1,6 @@
 { config, pkgs, lib, ... }:
 
 {
-  options.profiles.gaming.enable = lib.mkEnableOption "gaming apps and configs";
-
     # Gaming packages
     environment.systemPackages = with pkgs; [
       steam
