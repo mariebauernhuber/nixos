@@ -14,7 +14,7 @@
 			system = "x86_64-linux";
 			modules = [
 				./common.nix
-				./modules/profiles/gaming.nix
+				./hosts/desktop/hardware-configuration.nix
 				./modules/profiles/productivity.nix
 				home-manager.nixosModules.home-manager {
 					home-manager.useGlobalPkgs = true;
