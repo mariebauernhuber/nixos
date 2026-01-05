@@ -35,7 +35,7 @@
 
   i18n.inputMethod = {
     enabled = "fcitx5";  # Modern fcitx; use "fcitx" for older versions.
-    fcitx5.addons = with pkgs; [ fcitx5-mozc fcitx5-gtk fcitx5-qt ];  # Mozc engine.
+    fcitx5.addons = with pkgs; [ fcitx5-mozc fcitx5-gtk kdePackages.fcitx5-qt];  # Mozc engine.
   };
 
   i18n.extraLocaleSettings = {
