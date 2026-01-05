@@ -10,17 +10,31 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   systemd.services.check-config-updates = {
-	  description = "Check NixOS config GitHub updates";
-	  wantedBy = [ "display-manager.service" ];  # Runs before login manager
-	  before = [ "display-manager.service" ];
-	  requires = [ "network-online.target" ];
-	  after = [ "network-online.target" ];
-	  serviceConfig = {
-	    Type = "oneshot";
-	    ExecStart = "/etc/nixos/check-updates.sh";
-	    User = "root";  # Or your user if non-root git access
-	  };
+  description = "Check NixOS config GitHub updates";
+  wantedBy = [ "multi-user.target" ];
+  requires = [ "network-online.target" ];
+  after = [ "network-online.target" ];
+  serviceConfig = {
+    Type = "oneshot";
+    ExecStart = "/etc/nixos/check-updates.sh";
   };
+};
+
+environment.loginShellInit = ''
+  if [ -f /var/run/config-updates.txt ]; then
+    updates=$(cat /var/run/config-updates.txt)
+    echo "Git config updates available! ($updates)"
+    read -p "Pull now? [y/N]: " -n 1 -r
+    echo
+    if [[ $REPLY =~ ^[Yy]$ ]]; then
+      cd /etc/nixos && git pull origin main
+      echo "✓ Pulled. Run 'sudo nixos-rebuild switch'"
+    fi
+    rm /var/run/config-updates.txt
+  fi
+'';
+
+
 
   networking.hostName = "UwUbox"; # Define your hostname.
 
