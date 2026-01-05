@@ -24,6 +24,8 @@
     ipafont  # Japanese sans-serif.
     kochi-substitute  # Japanese monospace fallback.
     dejavu_fonts  # English fallback.
+      nerd-fonts.jetbrains-mono
+
   ];
   fonts.fontconfig.defaultFonts = {
     monospace = [ "IPAGothic" "DejaVu Sans Mono" ];
@@ -103,9 +105,6 @@
   libnotify
   ];
 
-  fonts.packages = with pkgs; [
-  nerd-fonts.jetbrains-mono
-];
 
 
   # Some programs need SUID wrappers, can be configured further or are
