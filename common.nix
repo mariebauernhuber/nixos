@@ -25,7 +25,7 @@
   ];
 
   i18n.extraLocaleSettings = {
-    LC_ALL = "ja_JP.UTF-8";
+    LC_ALL = "ja_JP.UTF-8/UTF-8";
   };
 
   fonts.packages = with pkgs; [
