@@ -9,6 +9,19 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  systemd.services.check-config-updates = {
+	  description = "Check NixOS config GitHub updates";
+	  wantedBy = [ "display-manager.service" ];  # Runs before login manager
+	  before = [ "display-manager.service" ];
+	  requires = [ "network-online.target" ];
+	  after = [ "network-online.target" ];
+	  serviceConfig = {
+	    Type = "oneshot";
+	    ExecStart = "/etc/nixos/check-updates.sh";
+	    User = "root";  # Or your user if non-root git access
+	  };
+  };
+
   networking.hostName = "UwUbox"; # Define your hostname.
 
   networking.networkmanager.enable = true;
