@@ -26,6 +26,20 @@
 
   i18n.extraLocaleSettings = {
     LC_ALL = "ja_JP.UTF-8/UTF-8";
+    LC_CTYPE = "ja_JP.UTF-8";      # Character classification: Japanese
+    LC_COLLATE = "ja_JP.UTF-8";    # Sorting: Japanese order  
+    LC_MESSAGES = "ja_JP.UTF-8";   # Messages/UI: Japanese
+    LC_NUMERIC = "ja_JP.UTF-8";    # Numbers: Japanese format
+    LC_MONETARY = "ja_JP.UTF-8";   # Currency: JPY
+    LC_NAME = "ja_JP.UTF-8";       # Names: Japanese style
+    
+    # Germany practical settings
+    LC_TIME = "de_DE.UTF-8";       # 24h, DD.MM.YYYY
+    LC_MEASUREMENT = "de_DE.UTF-8"; # Metric
+    LC_PAPER = "de_DE.UTF-8";      # A4
+    LC_ADDRESS = "de_DE.UTF-8";    # German format
+    LC_TELEPHONE = "de_DE.UTF-8";  # +49 format
+    LC_IDENTIFICATION = "de_DE.UTF-8";
   };
 
   fonts.packages = with pkgs; [
