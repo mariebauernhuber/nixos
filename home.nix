@@ -30,6 +30,15 @@
 		nordzy-icon-theme
 	];
 
+	home.pointerCursor = {
+	    enable = true;
+	    gtk.enable = true;
+	    x11.enable = true;  # For XWayland apps
+	    name = "Nordzy-cursors";  # Or "Nordzy-cursors-white"
+	    size = 24;
+	    package = pkgs.nordzy-cursor-theme;
+	};
+
 
 	home.file.".config/hypr".source = ./dots/hypr;
 	home.file.".config/waybar".source = ./dots/waybar;
