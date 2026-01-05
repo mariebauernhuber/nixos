@@ -19,6 +19,11 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "ja_JP.UTF-8";
 
+  i18n.supportedLocales = [
+	"ja_JP.UTF-8"
+	"en_US.UTF-8"
+  ];
+
   i18n.extraLocaleSettings = {
     LC_ALL = "ja_JP.UTF-8";
   };
@@ -28,11 +33,6 @@
          nerd-fonts.jetbrains-mono
 
   ];
-  fonts.fontconfig.defaultFonts = {
-    monospace = [ "IPAGothic" "DejaVu Sans Mono" ];
-    sansSerif = [ "IPAPGothic" "DejaVu Sans" ];
-    serif = [ "IPAPMincho" "DejaVu Serif" ];
-  };
 
   i18n.inputMethod.enable = true;
   i18n.inputMethod.type = "fcitx5";
