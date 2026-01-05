@@ -20,10 +20,8 @@
   i18n.defaultLocale = "ja_JP.UTF-8";
 
   fonts.packages = with pkgs; [
-    ipafont  # Japanese sans-serif.
-    kochi-substitute  # Japanese monospace fallback.
-    dejavu_fonts  # English fallback.
-      nerd-fonts.jetbrains-mono
+  noto-fonts-cjk-sans
+         nerd-fonts.jetbrains-mono
 
   ];
   fonts.fontconfig.defaultFonts = {
