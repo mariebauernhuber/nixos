@@ -24,6 +24,13 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
+    fileSystems."/tmp" = {
+	  device = "tmpfs";
+	  fsType = "tmpfs";
+	  options = [ "defaults" "size=2G" "mode=1777" ];  # Removes noexec
+	};
+
+
   swapDevices =
     [ { device = "/dev/disk/by-uuid/2395c5c7-bfc3-40af-98f1-1daff7ea7e32"; }
     ];
