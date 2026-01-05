@@ -25,6 +25,15 @@
 
 	programs.htop.enable = true;
 
+	home.packages = with pkgs; [
+	  (nwg-displays.overrideAttrs (old: {
+	    postInstall = ''
+	      wrapProgram $out/bin/nwg-displays \
+		--set XDG_CONFIG_HOME "/tmp/nwg-displays"
+	    '';
+	  }))
+	];
+
 	home.file.".config/hypr".source = ./dots/hypr;
 	home.file.".config/waybar".source = ./dots/waybar;
 }
