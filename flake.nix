@@ -9,7 +9,7 @@
 		};
 	};
 
-	outputs = { nixpkgs, home-manager, ... }@inputs: {
+	outputs = { nixpkgs, pkgs, home-manager, ... }@inputs: {
 		nixosConfigurations.nixos-desktop = nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
 			modules = [
@@ -23,11 +23,11 @@
 					home-manager.useUserPackages = true;
 					home-manager.users.nils = import ./home.nix;
 				}
-
-			];
 				environment.systemPackages = [
 				    nixpkgs.goxlr-utility
 				];
+
+			];
 		};
 
 		nixosConfigurations.nixos-t470s = nixpkgs.lib.nixosSystem {
