@@ -26,7 +26,7 @@
 
 			];
 				environment.systemPackages = [
-				    goxlr-utility
+				    nixpkgs.goxlr-utility
 				];
 		};
 
