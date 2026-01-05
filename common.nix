@@ -110,6 +110,7 @@ environment.loginShellInit = ''
   alacritty
   killall
   pavucontrol
+  libnotify
   ];
 
   fonts.packages = with pkgs; [
