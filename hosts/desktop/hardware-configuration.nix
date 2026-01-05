@@ -30,6 +30,16 @@
 	  options = [ "defaults" "size=2G" "mode=1777" ];  # Removes noexec
 	};
 
+   fileSystems."/mnt/2TBHDD" = {
+	device = "/dev/disk/by-uuid/144353bc-75d5-491a-b0b9-d21b170e1ddd";
+	fsType = "ext4";
+   };
+
+   fileSystems."/mnt/1TBHDD" = {
+	device = "/dev/disk/by-uuid/231d01d4-a7aa-4d2a-9cb3-658e47ccfbde";
+	fsType = "ext4";
+   }
+
 
   swapDevices =
     [ { device = "/dev/disk/by-uuid/2395c5c7-bfc3-40af-98f1-1daff7ea7e32"; }
