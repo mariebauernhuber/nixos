@@ -34,6 +34,7 @@
 
   i18n.inputMethod.enable = true;
   i18n.inputMethod.type = "fcitx5";
+  i18n.inputMethod.fcitx5.addons = [fcitx5-mozc];
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "de_DE.UTF-8";
