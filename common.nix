@@ -32,10 +32,8 @@
     serif = [ "IPAPMincho" "DejaVu Serif" ];
   };
 
-  i18n.inputMethod = {
-    enabled = "fcitx5";  # Modern fcitx; use "fcitx" for older versions.
-    fcitx5.addons = with pkgs; [ fcitx5-mozc fcitx5-gtk kdePackages.fcitx5-qt];  # Mozc engine.
-  };
+  i18n.inputMethod.enable = true;
+  i18n.inputMethos.type = "fcitx5";
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "de_DE.UTF-8";
@@ -102,6 +100,10 @@
   killall
   pavucontrol
   libnotify
+  fcitx5
+  fcitx5-mozc
+  kdePackages.fcitx5-qt
+  fcitx5-gtk
   ];
 
 
