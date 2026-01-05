@@ -18,6 +18,23 @@
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
+  i18n.supportedLocales = [ "ja_JP.UTF-8/UTF-8" ];
+
+  fonts.packages = with pkgs; [
+    ipafont  # Japanese sans-serif.
+    kochi-substitute  # Japanese monospace fallback.
+    dejavu_fonts  # English fallback.
+  ];
+  fonts.fontconfig.defaultFonts = {
+    monospace = [ "IPAGothic" "DejaVu Sans Mono" ];
+    sansSerif = [ "IPAPGothic" "DejaVu Sans" ];
+    serif = [ "IPAPMincho" "DejaVu Serif" ];
+  };
+
+  i18n.inputMethod = {
+    enabled = "fcitx5";  # Modern fcitx; use "fcitx" for older versions.
+    fcitx5.addons = with pkgs; [ fcitx5-mozc fcitx5-gtk fcitx5-qt ];  # Mozc engine.
+  };
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "de_DE.UTF-8";
