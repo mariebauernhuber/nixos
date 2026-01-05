@@ -38,7 +38,7 @@
    fileSystems."/mnt/1TBHDD" = {
 	device = "/dev/disk/by-uuid/231d01d4-a7aa-4d2a-9cb3-658e47ccfbde";
 	fsType = "ext4";
-   }
+   };
 
 
   swapDevices =
