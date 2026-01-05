@@ -54,6 +54,8 @@
 
   programs.hyprland.enable = true;
 
+  hardware.opengl.enable = true;
+
   programs.firefox.enable = true;
 
   programs.git.enable = true;
