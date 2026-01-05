@@ -3,6 +3,7 @@
 {
     # Productivity packages
     environment.systemPackages = with pkgs; [
+    grayjay
     nwg-displays
      (nwg-displays.overrideAttrs (old: {
     postInstall = ''
