@@ -32,6 +32,8 @@
     serif = [ "IPAPMincho" "DejaVu Serif" ];
   };
 
+  programs.fcitx5.enable = true;
+
   i18n.inputMethod.enable = true;
   i18n.inputMethod.type = "fcitx5";
   i18n.inputMethod.fcitx5.addons = [pkgs.fcitx5-mozc];
@@ -101,10 +103,6 @@
   killall
   pavucontrol
   libnotify
-  fcitx5
-  fcitx5-mozc
-  kdePackages.fcitx5-qt
-  fcitx5-gtk
   ];
 
 
