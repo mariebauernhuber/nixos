@@ -19,6 +19,10 @@
   # Select internationalisation properties.
   i18n.defaultLocale = "ja_JP.UTF-8";
 
+  i18n.extraLocaleSettings = {
+    LC_ALL = "ja_JP.UTF-8/UTF-8";
+  };
+
   fonts.packages = with pkgs; [
   noto-fonts-cjk-sans
          nerd-fonts.jetbrains-mono
