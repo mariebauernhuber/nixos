@@ -23,6 +23,10 @@
 					home-manager.useUserPackages = true;
 					home-manager.users.nils = import ./home.nix;
 				}
+				environment.systemPackages = [
+				    pkgs.goxlr-utility
+				];
+
 			];
 		};
 
