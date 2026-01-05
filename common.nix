@@ -17,7 +17,7 @@
   time.timeZone = "Europe/Berlin";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "ja_JP.UTF-8";
+  i18n.defaultLocale = "ja_JP.UTF-8/UTF-8";
 
   i18n.supportedLocales = [
 	"ja_JP.UTF-8/UTF-8"
@@ -25,7 +25,6 @@
   ];
 
   i18n.extraLocaleSettings = {
-    LC_ALL = "ja_JP.UTF-8/UTF-8";
     LC_CTYPE = "ja_JP.UTF-8";      # Character classification: Japanese
     LC_COLLATE = "ja_JP.UTF-8";    # Sorting: Japanese order  
     LC_MESSAGES = "ja_JP.UTF-8";   # Messages/UI: Japanese
