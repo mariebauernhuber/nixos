@@ -26,13 +26,9 @@
 	programs.htop.enable = true;
 
 	home.packages = with pkgs; [
-  (nwg-displays.overrideAttrs (old: {
-    postInstall = ''
-      wrapProgram $out/bin/nwg-displays \
-        --set-default XDG_CONFIG_HOME "$HOME/.cache/nwg-displays"
-    '';
-  }))
-];
+		nordzy-cursor-theme
+		nordzy-icon-theme
+	];
 
 
 	home.file.".config/hypr".source = ./dots/hypr;
