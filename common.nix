@@ -17,8 +17,7 @@
   time.timeZone = "Europe/Berlin";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-  i18n.supportedLocales = [ "ja_JP.UTF-8/UTF-8" ];
+  i18n.defaultLocale = "ja_JP.UTF-8";
 
   fonts.packages = with pkgs; [
     ipafont  # Japanese sans-serif.
