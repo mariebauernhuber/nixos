@@ -25,6 +25,8 @@
 
 	programs.htop.enable = true;
 
+	programs.nwg-displays.enable = true;
+
 	home.packages = with pkgs; [
 	  (nwg-displays.overrideAttrs (old: {
 	    postInstall = ''
