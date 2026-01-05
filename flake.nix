@@ -26,7 +26,7 @@
 
 			];
 				environment.systemPackages = [
-				    pkgs.goxlr-utility
+				    goxlr-utility
 				];
 		};
 
