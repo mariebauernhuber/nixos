@@ -33,7 +33,7 @@
   };
 
   i18n.inputMethod.enable = true;
-  i18n.inputMethos.type = "fcitx5";
+  i18n.inputMethod.type = "fcitx5";
 
   i18n.extraLocaleSettings = {
     LC_ADDRESS = "de_DE.UTF-8";
