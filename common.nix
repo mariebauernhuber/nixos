@@ -26,6 +26,7 @@
 
   i18n.extraLocaleSettings = {
     LANG = "ja_JP.UTF-8";
+    LC_ALL = "ja_JP.UTF-8";
     LC_CTYPE = "ja_JP.UTF-8";      # Character classification: Japanese
     LC_COLLATE = "ja_JP.UTF-8";    # Sorting: Japanese order  
     LC_MESSAGES = "ja_JP.UTF-8";   # Messages/UI: Japanese
