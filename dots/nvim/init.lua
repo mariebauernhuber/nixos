@@ -1138,5 +1138,9 @@ vim.keymap.set("n", "<leader>fv", ":VimtexView<CR>", {
 	silent = true, -- No command echo
 })
 
+vim.keymap.set("n", "<A-h>", "<cmd>BufferLineCyclePrev<cr>")
+vim.keymap.set("n", "<A-l>", "<cmd>BufferLineCycleNext<cr>")
+vim.keymap.set("n", "<leader>bp", "<cmd>BufferLineTogglePin<cr>") -- Pin master.tex
+
 vim.cmd("KeysToggle")
 vim.cmd("KeysToggle")
