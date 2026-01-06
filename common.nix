@@ -9,7 +9,7 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "UwUbox"; # Define your hostname.
 
   networking.networkmanager.enable = true;
   networking.wireless.enable = true;
@@ -17,19 +17,40 @@
   time.timeZone = "Europe/Berlin";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
+  i18n.defaultLocale = "ja_JP.UTF-8/UTF-8";
+
+  i18n.supportedLocales = [
+	"ja_JP.UTF-8/UTF-8"
+	"en_US.UTF-8/UTF-8"
+  ];
 
   i18n.extraLocaleSettings = {
-    LC_ADDRESS = "de_DE.UTF-8";
+    LANG = "ja_JP.UTF-8";
+    LC_CTYPE = "ja_JP.UTF-8";      # Character classification: Japanese
+    LC_COLLATE = "ja_JP.UTF-8";    # Sorting: Japanese order  
+    LC_MESSAGES = "ja_JP.UTF-8";   # Messages/UI: Japanese
+    LC_NUMERIC = "ja_JP.UTF-8";    # Numbers: Japanese format
+    LC_MONETARY = "ja_JP.UTF-8";   # Currency: JPY
+    LC_NAME = "ja_JP.UTF-8";       # Names: Japanese style
+    
+    # Germany practical settings
+    LC_TIME = "de_DE.UTF-8";       # 24h, DD.MM.YYYY
+    LC_MEASUREMENT = "de_DE.UTF-8"; # Metric
+    LC_PAPER = "de_DE.UTF-8";      # A4
+    LC_ADDRESS = "de_DE.UTF-8";    # German format
+    LC_TELEPHONE = "de_DE.UTF-8";  # +49 format
     LC_IDENTIFICATION = "de_DE.UTF-8";
-    LC_MEASUREMENT = "de_DE.UTF-8";
-    LC_MONETARY = "de_DE.UTF-8";
-    LC_NAME = "de_DE.UTF-8";
-    LC_NUMERIC = "de_DE.UTF-8";
-    LC_PAPER = "de_DE.UTF-8";
-    LC_TELEPHONE = "de_DE.UTF-8";
-    LC_TIME = "de_DE.UTF-8";
   };
+
+  fonts.packages = with pkgs; [
+  noto-fonts-cjk-sans
+         nerd-fonts.jetbrains-mono
+
+  ];
+
+  i18n.inputMethod.enable = true;
+  i18n.inputMethod.type = "fcitx5";
+  i18n.inputMethod.fcitx5.addons = [pkgs.fcitx5-mozc];
 
   # Configure keymap in X11
   services.xserver.xkb = {
@@ -53,6 +74,8 @@
   services.displayManager.ly.enable = true;
 
   programs.hyprland.enable = true;
+
+  hardware.opengl.enable = true;
 
   programs.firefox.enable = true;
 
@@ -78,13 +101,12 @@
   #  vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
   #  wget
   kitty
+  alacritty
   killall
   pavucontrol
+  libnotify
   ];
 
-  fonts.packages = with pkgs; [
-  nerd-fonts.jetbrains-mono
-];
 
 
   # Some programs need SUID wrappers, can be configured further or are

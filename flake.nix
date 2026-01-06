@@ -14,12 +14,30 @@
 			system = "x86_64-linux";
 			modules = [
 				./common.nix
+				./hosts/desktop/hardware-configuration.nix
 				./modules/profiles/gaming.nix
 				./modules/profiles/productivity.nix
+				./modules/misc.nix
 				home-manager.nixosModules.home-manager {
 					home-manager.useGlobalPkgs = true;
 					home-manager.useUserPackages = true;
 					home-manager.users.nils = import ./home.nix;
+				}
+				({ pkgs, ... }: {
+				environment.systemPackages = [
+				    pkgs.goxlr-utility
+				    pkgs.helvum
+				    pkgs.pavucontrol
+				    pkgs.qjackctl
+				];
+				})
+				{
+				services.pipewire = {
+					enable = true;
+					audio.enable = true;
+					pulse.enable = true;
+					wireplumber.enable = true;
+				};
 				}
 			];
 		};
