@@ -45,7 +45,6 @@
 				}
 			];
 		};
-		@attrs:
 		  let
 		    lib = nixpkgs.lib;
 		  in {
