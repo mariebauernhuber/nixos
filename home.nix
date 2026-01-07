@@ -40,9 +40,8 @@
 	    package = pkgs.nordzy-cursor-theme;
 	};
 
-
 	home.file = {
-		".local/share/wallpaper/wallpaper.png".source = ./wallpaper.png;
+		"wallpaper.png".source = ./wallpaper.png;
 		".config/hypr".source = ./dots/hypr;
 		".config/waybar".source = ./dots/waybar;
 		".config/alacritty".source = ./dots/alacritty;
@@ -51,8 +50,8 @@
 	services.hyprpaper = {
 	  enable = true;
 	  settings = {
-	    preload = ["~/.local/share/wallpaper/wallpaper.png"];
-	    wallpaper = [",~/.local/share/wallpaper/wallpaper.png"];  # Replace DP-1 with your monitor
+	    preload = ["~/wallpaper.png"];
+	    wallpaper = [",~/wallpaper.png"];  # Replace DP-1 with your monitor
 	  };
 	};
 }
