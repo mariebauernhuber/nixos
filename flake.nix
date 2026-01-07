@@ -1,6 +1,4 @@
-let
-	lib = nixpkgs.lib;
-in {
+{
 	description = "My NixOS config";
 
 	inputs = {
@@ -14,7 +12,9 @@ in {
 	      inputs.nixpkgs.follows = "nixpkgs";
 	      };
 	};
-
+let
+	lib = nixpkgs.lib;
+in{
 	outputs = { nixpkgs, home-manager, nixos-06cb-009a-fingerprint-sensor, ... }@inputs: {
 		nixosConfigurations.nixos-desktop = nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
@@ -91,4 +91,5 @@ in {
 
 			};
 		};
+	}
 }
