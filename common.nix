@@ -17,7 +17,7 @@
   time.timeZone = "Europe/Berlin";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "ja_JP.UTF-8";
+  i18n.defaultLocale = "ja_JP.UTF-8/UTF-8";
 
   i18n.extraLocales = [
 	"en_US.UTF-8/UTF-8"
@@ -76,7 +76,7 @@
 
   programs.hyprland.enable = true;
 
-  hardware.opengl.enable = true;
+  hardware.graphics.enable = true;
 
   programs.firefox.enable = true;
 
