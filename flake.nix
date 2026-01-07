@@ -54,6 +54,11 @@
 					home-manager.useUserPackages = true;
 					home-manager.users.nils = import ./home.nix;
 				}
+				({ pkgs, ... }: {
+				environment.systemPackages = [
+				prismlauncher
+				];
+				})
 				{
 				services.auto-cpufreq.enable = true;
 					services.auto-cpufreq.settings = {
