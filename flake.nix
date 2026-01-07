@@ -12,6 +12,7 @@
 	      inputs.nixpkgs.follows = "nixpkgs";
 	      };
 	};
+@attrs:
 let
 	lib = nixpkgs.lib;
 in{
