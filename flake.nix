@@ -1,4 +1,6 @@
-{
+let
+	lib = nixpkgs.lib;
+in {
 	description = "My NixOS config";
 
 	inputs = {
@@ -45,9 +47,7 @@
 				}
 			];
 		};
-		  let
-		    lib = nixpkgs.lib;
-		  in {
+		  
 			nixosConfigurations.nixos-t470s = nixpkgs.lib.nixosSystem {
 				system = "x86_64-linux";
 				modules = [
