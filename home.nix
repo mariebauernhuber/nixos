@@ -29,6 +29,7 @@
 	home.packages = with pkgs; [
 		nordzy-cursor-theme
 		nordzy-icon-theme
+		hyprpaper
 	];
 
 	home.pointerCursor = {
@@ -47,11 +48,4 @@
 		".config/alacritty".source = ./dots/alacritty;
 	};
 
-	services.hyprpaper = {
-	  enable = true;
-	  settings = {
-	    preload = ["~/.local/share/wallpaper/wallpaper.png"];
-	    wallpaper = [", ~/.local/share/wallpaper/wallpaper.png"];  # Replace DP-1 with your monitor
-	  };
-	};
 }
