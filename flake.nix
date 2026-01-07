@@ -7,16 +7,9 @@
 			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-		nixos-06cb-009a-fingerprint-sensor = {
-	      url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
-	      inputs.nixpkgs.follows = "nixpkgs";
-	      };
 	};
-@attrs:
-let
-	lib = nixpkgs.lib;
-in{
-	outputs = { nixpkgs, home-manager, nixos-06cb-009a-fingerprint-sensor, ... }@inputs: {
+
+	outputs = { nixpkgs, home-manager, ... }@inputs: {
 		nixosConfigurations.nixos-desktop = nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
 			modules = [
@@ -48,49 +41,39 @@ in{
 				}
 			];
 		};
-		  
-			nixosConfigurations.nixos-t470s = nixpkgs.lib.nixosSystem {
-				system = "x86_64-linux";
-				modules = [
-					./common.nix
-					./hosts/t470s/hardware-configuration.nix
-					./modules/profiles/productivity.nix
-					./modules/misc.nix
-					home-manager.nixosModules.home-manager {
-						home-manager.useGlobalPkgs = true;
-						home-manager.useUserPackages = true;
-						home-manager.users.nils = import ./home.nix;
-					}
-					({ pkgs, ... }: {
-					environment.systemPackages = [
-					pkgs.prismlauncher
-					];
-					  services.fprintd = {
-					    enable = true;
-					    tod = {
-					      enable = true;
-					      driver = nixos-06cb-009a-fingerprint-sensor.lib.libfprint-2-tod1-vfs0090-bingch {
-						calib-data-file = ./calib-data.bin;
-					      };
-					    };
-					  };
-					})
-					{
-					services.auto-cpufreq.enable = true;
-						services.auto-cpufreq.settings = {
-						  battery = {
-						     governor = "powersave";
-						     turbo = "never";
-						  };
-						  charger = {
-						     governor = "performance";
-						     turbo = "auto";
-						  };
-						};
-					}
-				];
 
-			};
+		nixosConfigurations.nixos-t470s = nixpkgs.lib.nixosSystem {
+			system = "x86_64-linux";
+			modules = [
+				./common.nix
+				./hosts/t470s/hardware-configuration.nix
+				./modules/profiles/productivity.nix
+				./modules/misc.nix
+				home-manager.nixosModules.home-manager {
+					home-manager.useGlobalPkgs = true;
+					home-manager.useUserPackages = true;
+					home-manager.users.nils = import ./home.nix;
+				}
+				({ pkgs, ... }: {
+				environment.systemPackages = [
+				pkgs.prismlauncher
+				];
+				})
+				{
+				services.auto-cpufreq.enable = true;
+					services.auto-cpufreq.settings = {
+					  battery = {
+					     governor = "powersave";
+					     turbo = "never";
+					  };
+					  charger = {
+					     governor = "performance";
+					     turbo = "auto";
+					  };
+					};
+				}
+			];
+
 		};
-	}
+	};
 }
