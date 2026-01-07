@@ -41,7 +41,6 @@
 	};
 
 	home.file = {
-		"wallpaper.png".source = ./wallpaper.png;
 		".config/hypr".source = ./dots/hypr;
 		".config/waybar".source = ./dots/waybar;
 		".config/alacritty".source = ./dots/alacritty;
@@ -50,8 +49,8 @@
 	services.hyprpaper = {
 	  enable = true;
 	  settings = {
-	    preload = ["~/wallpaper.png"];
-	    wallpaper = [",~/wallpaper.png"];  # Replace DP-1 with your monitor
+	    preload = ["/home/nils/wallpaper.png"];
+	    wallpaper = [",/home/nils/wallpaper.png"];  # Replace DP-1 with your monitor
 	  };
 	};
 }
