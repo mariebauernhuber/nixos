@@ -44,5 +44,6 @@
 	home.file = {
 		".config/hypr".source = ./dots/hypr;
 		".config/waybar".source = ./dots/waybar;
+		".config/alacritty".source = ./dots/alacritty;
 	};
 }
