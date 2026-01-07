@@ -64,7 +64,7 @@ in {
 					environment.systemPackages = [
 					pkgs.prismlauncher
 					];
-									  services.fprintd = {
+					  services.fprintd = {
 					    enable = true;
 					    tod = {
 					      enable = true;
@@ -73,7 +73,6 @@ in {
 					      };
 					    };
 					  };
-					}
 					})
 					{
 					services.auto-cpufreq.enable = true;
