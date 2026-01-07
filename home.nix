@@ -28,6 +28,7 @@
 	home.packages = with pkgs; [
 		nordzy-cursor-theme
 		nordzy-icon-theme
+		hyprpaper
 	];
 
 	home.pointerCursor = {
@@ -40,6 +41,8 @@
 	};
 
 
-	home.file.".config/hypr".source = config.lib.file.mkOutOfStoreSymlink "${./dots/hypr}";
-	home.file.".config/waybar".source = ./dots/waybar;
+	home.file = {
+		".config/hypr".source = ./dots/hypr;
+		".config/waybar".source = ./dots/waybar;
+	};
 }
