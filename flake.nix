@@ -62,6 +62,10 @@
 				environment.systemPackages = [
 				pkgs.prismlauncher
 				];
+				@attrs:
+				  let
+				    lib = nixpkgs.lib;
+				  in {
 				  services.fprintd = {
 				    enable = true;
 				    tod = {
@@ -71,7 +75,7 @@
 				      };
 				    };
 				  };
-
+				}
 				})
 				{
 				services.auto-cpufreq.enable = true;
