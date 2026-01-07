@@ -43,8 +43,7 @@
 
 
 	home.file = {
-		".local/share/wallpaper/wallpaper.png".source = ./dots/hypr/wallpaper.png";
-
+		".local/share/wallpaper/wallpaper.png".source = ./dots/hypr/wallpaper.png;
 		".config/hypr".source = ./dots/hypr;
 		".config/waybar".source = ./dots/waybar;
 		".config/alacritty".source = ./dots/alacritty;
