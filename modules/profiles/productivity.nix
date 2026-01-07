@@ -3,11 +3,18 @@
 {
     # Productivity packages
     environment.systemPackages = with pkgs; [
-      neovim
-      unzip # DEP for neovim (stylua)
-      texliveFull
-      texlab
-      zathura  # PDF viewer
+	neovim
+	unzip # DEP for neovim (stylua)
+	texliveFull
+	texlab
+	zathura  # PDF viewer
+	gcc
+	gnumake
+	pkg-config
+	sdl3
+	sdl3-ttf
+	glew
+	glm
     ];
 
     # Home Manager productivity configs
