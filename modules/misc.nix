@@ -4,6 +4,8 @@
     # Productivity packages
     environment.systemPackages = with pkgs; [
     qpwgraph
+    fastfetch
+    hyfetch
     nwg-displays
      (nwg-displays.overrideAttrs (old: {
     postInstall = ''
