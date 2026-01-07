@@ -29,7 +29,6 @@
 	home.packages = with pkgs; [
 		nordzy-cursor-theme
 		nordzy-icon-theme
-		hyprpaper
 	];
 
 	home.pointerCursor = {
@@ -52,8 +51,8 @@
 	services.hyprpaper = {
 	  enable = true;
 	  settings = {
-	    preload = ["~/.local/share/wallpaper/wallpaper.jpg"];
-	    wallpaper = [",DP-1,~/.local/share/wallpaper/wallpaper.jpg"];  # Replace DP-1 with your monitor
+	    preload = ["~/.local/share/wallpaper/wallpaper.png"];
+	    wallpaper = [",~/.local/share/wallpaper/wallpaper.png"];  # Replace DP-1 with your monitor
 	  };
 	};
 }
