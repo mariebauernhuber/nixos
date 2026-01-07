@@ -7,9 +7,13 @@
 			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		nixos-06cb-009a-fingerprint-sensor = {
+	      url = "github:ahbnr/nixos-06cb-009a-fingerprint-sensor";
+	      inputs.nixpkgs.follows = "nixpkgs";
+	      };
 	};
 
-	outputs = { nixpkgs, home-manager, ... }@inputs: {
+	outputs = { nixpkgs, home-manager, nixos-06cb-009a-fingerprint-sensor, ... }@inputs: {
 		nixosConfigurations.nixos-desktop = nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
 			modules = [
@@ -58,11 +62,15 @@
 				environment.systemPackages = [
 				pkgs.prismlauncher
 				];
-				services.fprintd.enable = true;
-				  # If simply enabling fprintd is not enough, try enabling fprintd.tod...
-				  services.fprintd.tod.enable = true;
-				  # ...and use one of the next four drivers
-				  services.fprintd.tod.driver = pkgs.libfprint-2-tod1-goodix; # Goodix driver module
+				  services.fprintd = {
+				    enable = true;
+				    tod = {
+				      enable = true;
+				      driver = nixos-06cb-009a-fingerprint-sensor.lib.libfprint-2-tod1-vfs0090-bingch {
+					calib-data-file = ./calib-data.bin;
+				      };
+				    };
+				  };
 
 				})
 				{
