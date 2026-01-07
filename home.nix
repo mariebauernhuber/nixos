@@ -43,9 +43,17 @@
 
 
 	home.file = {
-		".local/share/wallpaper/wallpaper.png".source = ./dots/hypr/wallpaper.png;
+		".local/share/wallpaper/wallpaper.png".source = ./wallpaper.png;
 		".config/hypr".source = ./dots/hypr;
 		".config/waybar".source = ./dots/waybar;
 		".config/alacritty".source = ./dots/alacritty;
+	};
+
+	services.hyprpaper = {
+	  enable = true;
+	  settings = {
+	    preload = ["~/.local/share/wallpaper/wallpaper.jpg"];
+	    wallpaper = [",DP-1,~/.local/share/wallpaper/wallpaper.jpg"];  # Replace DP-1 with your monitor
+	  };
 	};
 }
