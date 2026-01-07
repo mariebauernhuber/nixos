@@ -40,6 +40,6 @@
 	};
 
 
-	home.file.".config/hypr".source = ./dots/hypr;
+	environment.etc."nixos/.config/hypr".source = config.lib.file.mkOutOfStoreSymlink /etc/nixos/.config/hypr;
 	home.file.".config/waybar".source = ./dots/waybar;
 }
