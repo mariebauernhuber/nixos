@@ -56,7 +56,7 @@
 				}
 				({ pkgs, ... }: {
 				environment.systemPackages = [
-				prism-launcher
+				pkgs.prismlauncher
 				];
 				})
 				{
