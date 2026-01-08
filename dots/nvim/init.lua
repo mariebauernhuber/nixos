@@ -1019,13 +1019,6 @@ ins_left({ "location" })
 ins_left({ "progress", color = { fg = colors.fg, gui = "bold" } })
 
 ins_left({
-	function()
-		return require("keys").current_keys(true)
-	end,
-	color = { fg = colors.yellow },
-})
-
-ins_left({
 	"diagnostics",
 	sources = { "nvim_diagnostic" },
 	symbols = { error = " ", warn = " ", info = " " },
@@ -1042,6 +1035,12 @@ ins_left({
 	function()
 		return "%="
 	end,
+})
+ins_left({
+	function()
+		return require("keys").current_keys(true)
+	end,
+	color = { fg = colors.yellow },
 })
 
 ins_left({
