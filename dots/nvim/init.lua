@@ -1141,4 +1141,4 @@ vim.keymap.set("n", "<A-h>", "<cmd>BufferLineCyclePrev<cr>")
 vim.keymap.set("n", "<A-l>", "<cmd>BufferLineCycleNext<cr>")
 vim.keymap.set("n", "<leader>bp", "<cmd>BufferLineTogglePin<cr>") -- Pin master.tex
 
-require("screenkey").statusline_component_is_active()
+vim.cmd("Screenkey toggle_statusline_component")
