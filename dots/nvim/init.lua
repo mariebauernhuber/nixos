@@ -1104,6 +1104,15 @@ ins_right({
 	padding = { left = 1 },
 })
 
+require("keys").setup({
+	enable_on_startup = false,
+	win_opts = {
+		width = 25,
+		-- etc
+	},
+	-- TODO: more options later
+})
+
 -- Now don't forget to initialize lualine
 lualine.setup(config)
 
