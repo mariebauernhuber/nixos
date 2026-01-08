@@ -14,6 +14,9 @@
 		initExtra = ''
 		hyfetch
 		'';
+		promptInit = ''
+		PS1='\[\e[92m\][]\[\e[0m\] \[\e[92m\]\D{}\[\e[0m\] \[\e[92m\][\s:\u@\h.org][\w]\n\[\e[0;1m\]> \[\e[0m\]'
+		'';
 	};
 
 	programs.wofi.enable = true;
