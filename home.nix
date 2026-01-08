@@ -46,6 +46,7 @@
 		".config/waybar".source = ./dots/waybar;
 		".config/alacritty".source = ./dots/alacritty;
 		".config/ulauncher".source = ./dots/ulauncher;
+		".config/wofi".source = ./dots/wofi;
 	};
 
 }
