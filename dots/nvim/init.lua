@@ -1028,19 +1028,18 @@ ins_left({
 		info = { fg = colors.cyan },
 	},
 })
-
+ins_left({
+	function()
+		return require("keys").current_keys(true)
+	end,
+	color = { fg = colors.yellow },
+})
 -- Insert mid section. You can make any number of sections in neovim :)
 -- for lualine it's any number greater then 2
 ins_left({
 	function()
 		return "%="
 	end,
-})
-ins_left({
-	function()
-		return require("keys").current_keys(true)
-	end,
-	color = { fg = colors.yellow },
 })
 
 ins_left({
