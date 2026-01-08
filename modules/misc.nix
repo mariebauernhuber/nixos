@@ -7,6 +7,7 @@
     fastfetch
     hyfetch
     nwg-displays
+    kdePackages.kdeconnect-kde
      (nwg-displays.overrideAttrs (old: {
     postInstall = ''
       wrapProgram $out/bin/nwg-displays \
