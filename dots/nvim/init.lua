@@ -876,8 +876,93 @@ require("lazy").setup({
 	},
 })
 
-require("keys").setup({
-	enable_on_startup = false, -- Prevents overlay window
+require("screenkey").setup({
+	win_opts = {
+		row = vim.o.lines - vim.o.cmdheight - 1,
+		col = vim.o.columns - 1,
+		relative = "editor",
+		anchor = "SE",
+		width = 40,
+		height = 3,
+		border = "single",
+		title = "Screenkey",
+		title_pos = "center",
+		style = "minimal",
+		focusable = false,
+		noautocmd = true,
+	},
+	hl_groups = {
+		["screenkey.hl.key"] = { link = "Normal" },
+		["screenkey.hl.map"] = { link = "Normal" },
+		["screenkey.hl.sep"] = { link = "Normal" },
+	},
+	winblend = 0,
+	compress_after = 3,
+	clear_after = 3,
+	emit_events = true,
+	disable = {
+		filetypes = {},
+		buftypes = {},
+		modes = {},
+	},
+	show_leader = true,
+	group_mappings = false,
+	display_infront = {},
+	display_behind = {},
+	filter = function(keys)
+		return keys
+	end,
+	colorize = function(keys)
+		return keys
+	end,
+	separator = " ",
+	keys = {
+		["<TAB>"] = "󰌒",
+		["<CR>"] = "󰌑",
+		["<ESC>"] = "Esc",
+		["<SPACE>"] = "␣",
+		["<BS>"] = "󰌥",
+		["<DEL>"] = "Del",
+		["<LEFT>"] = "",
+		["<RIGHT>"] = "",
+		["<UP>"] = "",
+		["<DOWN>"] = "",
+		["<HOME>"] = "Home",
+		["<END>"] = "End",
+		["<PAGEUP>"] = "PgUp",
+		["<PAGEDOWN>"] = "PgDn",
+		["<INSERT>"] = "Ins",
+		["<F1>"] = "󱊫",
+		["<F2>"] = "󱊬",
+		["<F3>"] = "󱊭",
+		["<F4>"] = "󱊮",
+		["<F5>"] = "󱊯",
+		["<F6>"] = "󱊰",
+		["<F7>"] = "󱊱",
+		["<F8>"] = "󱊲",
+		["<F9>"] = "󱊳",
+		["<F10>"] = "󱊴",
+		["<F11>"] = "󱊵",
+		["<F12>"] = "󱊶",
+		["CTRL"] = "Ctrl",
+		["ALT"] = "Alt",
+		["SUPER"] = "󰘳",
+		["<leader>"] = "<leader>",
+	},
+	notify_method = "echo",
+	log = {
+		min_level = vim.log.levels.OFF,
+		filepath = vim.fn.stdpath("data") .. "/screenkey_log",
+	},
+	filter = function(keys)
+		local screenkey = require("screenkey")
+		for i, k in ipairs(keys) do
+			if screenkey.statusline_component_is_active() and k.key == "%" then
+				keys[i].key = "%%"
+			end
+		end
+		return keys
+	end,
 })
 
 -- Eviline config for lualine
@@ -1030,7 +1115,7 @@ ins_left({
 })
 ins_left({
 	function()
-		return require("keys").current_keys(true)
+		return require("screenkey").get_keys(true)
 	end,
 	color = { fg = colors.yellow },
 })
@@ -1154,5 +1239,5 @@ vim.keymap.set("n", "<A-h>", "<cmd>BufferLineCyclePrev<cr>")
 vim.keymap.set("n", "<A-l>", "<cmd>BufferLineCycleNext<cr>")
 vim.keymap.set("n", "<leader>bp", "<cmd>BufferLineTogglePin<cr>") -- Pin master.tex
 
-vim.cmd("KeysToggle")
-vim.cmd("KeysToggle")
+vim.cmd("Screenkey toggle")
+vim.cmd("Screenkey toggle")
