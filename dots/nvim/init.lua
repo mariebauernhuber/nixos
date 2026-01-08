@@ -1136,7 +1136,7 @@ vim.g.vimtex_compiler_latexmk = {
 	out_dir = "/home/nils/.texfiles/",
 }
 
-vim.cmd.colorscheme("tokyonight-storm")
+vim.cmd.colorscheme("gruvbox")
 
 vim.keymap.set("n", "<leader>fv", ":VimtexView<CR>", {
 	desc = "Vimtex View (open PDF)",
