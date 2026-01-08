@@ -7,6 +7,7 @@
     fastfetch
     hyfetch
     nwg-displays
+    ulauncher
     kdePackages.kdeconnect-kde
      (nwg-displays.overrideAttrs (old: {
     postInstall = ''
