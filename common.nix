@@ -45,7 +45,8 @@
 
   fonts.packages = with pkgs; [
   noto-fonts-cjk-sans
-         nerd-fonts.jetbrains-mono
+  nerd-fonts.jetbrains-mono
+  nerd-fonts.hurmit
 
   ];
 
