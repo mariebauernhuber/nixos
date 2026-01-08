@@ -11,6 +11,9 @@
 			btw = "echo i use nixos btw";
 			gacm = "git add -A && git commit -m";
 		};
+		initExtra = ''
+		hyfetch
+		'';
 	};
 
 	programs.wofi.enable = true;
