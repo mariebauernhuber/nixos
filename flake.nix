@@ -7,13 +7,9 @@
 			url = "github:nix-community/home-manager";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-		nixvim = {
-			url = "github:nix-community/nixvim";
-			inputs.nixpkgs.follows = "nixpkgs";
-		};
 	};
 
-	outputs = { nixpkgs, home-manager, nixvim, ... }@inputs: {
+	outputs = { nixpkgs, home-manager, ... }@inputs: {
 		nixosConfigurations.nixos-desktop = nixpkgs.lib.nixosSystem {
 			system = "x86_64-linux";
 			modules = [
@@ -51,9 +47,8 @@
 			modules = [
 				./common.nix
 				./hosts/t470s/hardware-configuration.nix
+				./modules/profiles/productivity.nix
 				./modules/misc.nix
-				./modules/nixvim.nix
-				_module.args.nixvim = nixvim;
 				home-manager.nixosModules.home-manager {
 					home-manager.useGlobalPkgs = true;
 					home-manager.useUserPackages = true;
