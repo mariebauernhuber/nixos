@@ -22,7 +22,6 @@
 				./modules/profiles/gaming.nix
 				./modules/profiles/productivity.nix
 				./modules/misc.nix
-				_module.args.nixvim = nixvim;
 				home-manager.nixosModules.home-manager {
 					home-manager.useGlobalPkgs = true;
 					home-manager.useUserPackages = true;
@@ -58,6 +57,7 @@
 				./hosts/t470s/hardware-configuration.nix
 				./modules/misc.nix
 				./modules/nixvim.nix
+				_module.args.nixvim = nixvim;
 				home-manager.nixosModules.home-manager {
 					home-manager.useGlobalPkgs = true;
 					home-manager.useUserPackages = true;
