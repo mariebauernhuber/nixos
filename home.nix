@@ -33,6 +33,7 @@
 		nordzy-cursor-theme
 		nordzy-icon-theme
 		hyprpaper
+		wineWowPackages.stable
 	];
 
 	home.pointerCursor = {
