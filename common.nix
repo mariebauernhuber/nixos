@@ -24,8 +24,8 @@
   ];
 
   i18n.extraLocaleSettings = {
-    LANG = "en_US.UTF-8/UTF-8";
-    LC_ALL = "en_US.UTF-8/UTF-8";
+    LANG = "en_US.UTF-8";
+    LC_ALL = "en_US.UTF-8";
     
     # Germany practical settings
     LC_TIME = "de_DE.UTF-8";       # 24h, DD.MM.YYYY
