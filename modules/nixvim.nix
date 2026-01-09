@@ -6,6 +6,25 @@ let
     # When using a different channel you can use `ref = "nixos-<version>"` to set it here
   });
 in{
+
+    # Only expose programs.nixvim; other options are filled in by the flake
+  options = {
+    programs.nixvim = lib.mkOption {
+      type = lib.types.submodule {
+        options = {
+          # You can add custom options here if needed, e.g.:
+          # extraPlugins = lib.mkOption {
+          #   type = lib.types.listOf lib.types.attrs;
+          #   default = [];
+          # };
+        };
+      };
+      description = "nixvim configuration";
+    };
+  };
+
+  config = {
+  imports = [ config._module.args.nixvim.homeModules.nixvim ];
     # Productivity packages
     environment.systemPackages = with pkgs; [
 	unzip # DEP for neovim (stylua)
@@ -26,4 +45,5 @@ in{
 		colorschemes.catppuccin.enable = true;
 		plugins.lualine.enable = true;
 	};
+ };
 }
