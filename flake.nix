@@ -35,7 +35,7 @@
 				    pkgs.pavucontrol
 				    pkgs.qjackctl
 				];
-				})
+				});
 				services.pipewire = {
 					enable = true;
 					audio.enable = true;
