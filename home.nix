@@ -34,6 +34,8 @@
 		nordzy-icon-theme
 		hyprpaper
 		wineWowPackages.stable
+		kdePackages.dolphin
+		kdePackages.ark
 	];
 
 	home.pointerCursor = {
