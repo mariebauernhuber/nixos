@@ -47,8 +47,8 @@
 			modules = [
 				./common.nix
 				./hosts/t470s/hardware-configuration.nix
-				./modules/profiles/productivity.nix
 				./modules/misc.nix
+				./modules/nixvim.nix
 				home-manager.nixosModules.home-manager {
 					home-manager.useGlobalPkgs = true;
 					home-manager.useUserPackages = true;
