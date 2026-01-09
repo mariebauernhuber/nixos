@@ -66,7 +66,7 @@
   users.users.nils = {
     isNormalUser = true;
     description = "Nils Ritter";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "input" ];
     packages = with pkgs; [neovim];
   };
 
