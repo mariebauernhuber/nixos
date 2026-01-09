@@ -4,6 +4,7 @@
     # Productivity packages
     environment.systemPackages = with pkgs; [
 	neovim
+	tree-sitter
 	unzip # DEP for neovim (stylua)
 	texliveFull
 	texlab
