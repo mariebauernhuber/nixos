@@ -36,6 +36,7 @@
 		wineWowPackages.stable
 		kdePackages.dolphin
 		kdePackages.ark
+		unrar
 	];
 
 	home.pointerCursor = {
