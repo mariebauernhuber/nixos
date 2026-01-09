@@ -17,22 +17,15 @@
   time.timeZone = "Europe/Berlin";
 
   # Select internationalisation properties.
-  i18n.defaultLocale = "ja_JP.UTF-8";
+  i18n.defaultLocale = "en_US.UTF-8/UTF-8";
 
   i18n.extraLocales = [
-	"en_US.UTF-8/UTF-8"
 	"de_DE.UTF-8/UTF-8"
   ];
 
   i18n.extraLocaleSettings = {
-    LANG = "ja_JP.UTF-8";
-    LC_ALL = "ja_JP.UTF-8";
-    LC_CTYPE = "ja_JP.UTF-8";      # Character classification: Japanese
-    LC_COLLATE = "ja_JP.UTF-8";    # Sorting: Japanese order  
-    LC_MESSAGES = "ja_JP.UTF-8";   # Messages/UI: Japanese
-    LC_NUMERIC = "ja_JP.UTF-8";    # Numbers: Japanese format
-    LC_MONETARY = "ja_JP.UTF-8";   # Currency: JPY
-    LC_NAME = "ja_JP.UTF-8";       # Names: Japanese style
+    LANG = "en_US.UTF-8/UTF-8";
+    LC_ALL = "en_US.UTF-8/UTF-8";
     
     # Germany practical settings
     LC_TIME = "de_DE.UTF-8";       # 24h, DD.MM.YYYY
