@@ -75,8 +75,13 @@
 			];
 
 		};
-
-		devShells = forAllSystems (system:
+		 let
+		    systems = [ "x86_64-linux" ];
+		    forAllSystems = f: builtins.listToAttrs (map
+		      (system: { name = system; value = f system; })
+		      systems);
+		  in {
+		    devShells = forAllSystems (system:
 		      let
 			pkgs = import nixpkgs { inherit system; };
 		      in {
@@ -104,6 +109,7 @@
 			  '';
 			};
 		      });
+		  };
 
 	};
 }
