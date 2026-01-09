@@ -26,10 +26,7 @@
 					home-manager.useGlobalPkgs = true;
 					home-manager.useUserPackages = true;
 					home-manager.users.nils = {
-					imports = [ ./home.nix, ./modules/nixvim.nix ];
-
-				      # Pass the nixvim flake into the module
-				      _module.args.nixvim = nixvim;
+					imports = [ ./home.nix ];
 				}
 				({ pkgs, ... }: {
 				environment.systemPackages = [
