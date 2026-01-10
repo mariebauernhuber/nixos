@@ -21,6 +21,7 @@
       home.packages = with pkgs; [
         vesktop
         obs-studio
+	pkgs.obs-studio-plugins.input-overlay
       ];
   };
 }
