@@ -20,8 +20,11 @@
     home-manager.users.nils = {
       home.packages = with pkgs; [
         vesktop
-        obs-studio
-	pkgs.obs-studio-plugins.input-overlay
+	 (pkgs.wrapOBS {
+	    plugins = with pkgs.obs-studio-plugins; [
+	      input-overlay
+	    ];
+	  })
       ];
   };
 }
