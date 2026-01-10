@@ -34,6 +34,10 @@
 		nordzy-cursor-theme
 		nordzy-icon-theme
 		hyprpaper
+		wineWowPackages.stable
+		kdePackages.dolphin
+		kdePackages.ark
+		unrar
 	];
 
 	home.pointerCursor = {

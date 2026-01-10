@@ -29,6 +29,7 @@
 				    pkgs.helvum
 				    pkgs.pavucontrol
 				    pkgs.qjackctl
+				    pkgs.streamcontroller
 				];
 				})
 				{
