@@ -76,41 +76,6 @@
 			];
 
 		};
-		 let
-		    systems = [ "x86_64-linux" ];
-		    forAllSystems = f: builtins.listToAttrs (map
-		      (system: { name = system; value = f system; })
-		      systems);
-		  in {
-		    devShells = forAllSystems (system:
-		      let
-			pkgs = import nixpkgs { inherit system; };
-		      in {
-			# keep an existing shell if you already had one
-			# existing = ...;
-
-			# add / override the C++ / SDL3 / clangd shell
-			default = pkgs.mkShell {
-			  packages = with pkgs; [
-			    gcc
-			    gnumake
-			    pkg-config
-
-			    sdl3
-			    sdl3-ttf
-			    glew
-			    glm
-
-			    clang-tools
-			    bear
-			  ];
-
-			  shellHook = ''
-			    echo "Dev shell: C++ / SDL3 / clangd"
-			  '';
-			};
-		      });
-		  };
 
 	};
 }
