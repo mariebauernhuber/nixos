@@ -429,14 +429,13 @@ require("lazy").setup({
 			})
 
 			lspconfig.clangd.setup({
+				root_dir = require("lspconfig.util").root_pattern("compile_commands.json", ".git"),
 				cmd = {
 					"clangd",
 					"--background-index",
 					"--clang-tidy",
 					"--query-driver=/nix/store/*/bin/g++",
 				},
-
-				root_dir = require("lspconfig.util").root_pattern("compile_commands.json", ".git"),
 			})
 
 			-- Brief aside: **What is LSP?**
