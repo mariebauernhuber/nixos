@@ -38,7 +38,6 @@
 		kdePackages.dolphin
 		kdePackages.ark
 		unrar
-		easyeffects
 	];
 
 	home.pointerCursor = {
