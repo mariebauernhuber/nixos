@@ -30,6 +30,7 @@
 				    pkgs.pavucontrol
 				    pkgs.qjackctl
 				    pkgs.streamcontroller
+				    pkgs.via
 				];
 				})
 				{

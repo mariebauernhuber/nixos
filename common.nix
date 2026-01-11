@@ -43,6 +43,11 @@
 
   ];
 
+  services.udev.extraRules = ''
+  KERNEL=="hidraw*", SUBSYSTEM=="hidraw", MODE="0660", GROUP="users", TAG+="uaccess", TAG+="udev-acl"
+'';
+
+
   services.playerctld.enable = true;
 
   i18n.inputMethod.enable = true;
