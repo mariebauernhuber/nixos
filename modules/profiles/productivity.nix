@@ -4,6 +4,9 @@
     # Productivity packages
     environment.systemPackages = with pkgs; [
 	neovim
+	tree-sitter
+	clang-tools
+	python315
 	unzip # DEP for neovim (stylua)
 	texliveFull
 	texlab

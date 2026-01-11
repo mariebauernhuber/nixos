@@ -436,6 +436,16 @@ require("lazy").setup({
 				},
 			})
 
+			lspconfig.clangd.setup({
+				root_dir = require("lspconfig.util").root_pattern("compile_commands.json", ".git"),
+				cmd = {
+					"clangd",
+					"--background-index",
+					"--clang-tidy",
+					"--query-driver=/nix/store/*/bin/g++",
+				},
+			})
+
 			-- Brief aside: **What is LSP?**
 			--
 			-- LSP is an initialism you've probably heard, but might not understand what it is.
@@ -807,6 +817,7 @@ require("lazy").setup({
 			ensure_installed = {
 				"bash",
 				"c",
+				"cpp",
 				"diff",
 				"html",
 				"lua",
@@ -847,9 +858,9 @@ require("lazy").setup({
 	--
 	require("kickstart.plugins.debug"),
 	-- require 'kickstart.plugins.indent_line',
-	-- require 'kickstart.plugins.lint',
-	-- require 'kickstart.plugins.autopairs',
-	require("kickstart.plugins.neo-tree"),
+	require("kickstart.plugins.lint"),
+	require("kickstart.plugins.autopairs"),
+	-- require("kickstart.plugins.neo-tree"),
 	-- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
 	-- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
