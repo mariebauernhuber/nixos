@@ -407,6 +407,15 @@ require("lazy").setup({
 			"saghen/blink.cmp",
 		},
 		config = function()
+			lspconfig.clangd.setup({
+				cmd = {
+					"clangd",
+					"--query-driver=/run/current-system/sw/bin/g++,/run/current-system/sw/bin/clang++", -- Example for NixOS
+					"--background-index",
+					"--clang-tidy",
+				},
+				root_dir = require("lspconfig.util").root_pattern("compile_commands.json", ".git"),
+			})
 			local lspconfig = require("lspconfig")
 
 			lspconfig.texlab.setup({
