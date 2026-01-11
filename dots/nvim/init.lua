@@ -407,6 +407,7 @@ require("lazy").setup({
 			"saghen/blink.cmp",
 		},
 		config = function()
+			local lspconfig = require("lspconfig")
 			lspconfig.clangd.setup({
 				cmd = {
 					"clangd",
@@ -416,8 +417,6 @@ require("lazy").setup({
 				},
 				root_dir = require("lspconfig.util").root_pattern("compile_commands.json", ".git"),
 			})
-			local lspconfig = require("lspconfig")
-
 			lspconfig.texlab.setup({
 				settings = {
 					texlab = {
