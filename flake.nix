@@ -31,6 +31,7 @@
 				    pkgs.qjackctl
 				    pkgs.streamcontroller
 				    pkgs.via
+				    pkgs.ryubing
 				];
 				})
 				{
