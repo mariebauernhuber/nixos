@@ -32,6 +32,7 @@
 				    pkgs.streamcontroller
 				    pkgs.via
 				    pkgs.ryubing
+				    pkgs.ficsit-cli
 				];
 				})
 				{
