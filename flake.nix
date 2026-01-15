@@ -33,6 +33,7 @@
 				    pkgs.via
 				    pkgs.ryubing
 				    pkgs.ficsit-cli
+				    pkgs.satisfactorymodmanager
 				];
 				})
 				{
