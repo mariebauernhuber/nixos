@@ -33,7 +33,7 @@
 	home.packages = with pkgs; [
 		nordzy-cursor-theme
 		nordzy-icon-theme
-		hyprpaper
+		ripgrep
 		wineWowPackages.stable
 		kdePackages.dolphin
 		kdePackages.ark
