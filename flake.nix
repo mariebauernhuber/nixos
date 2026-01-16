@@ -34,7 +34,7 @@
 				    pkgs.ryubing
 				    pkgs.ficsit-cli
 				    pkgs.satisfactorymodmanager
-				    hyprpaper
+				    pkgs.hyprpaper
 				];
 				})
 				{
