@@ -35,6 +35,7 @@
 				    pkgs.ficsit-cli
 				    pkgs.satisfactorymodmanager
 				    pkgs.hyprpaper
+				    pkgs.blender
 				];
 				})
 				{
