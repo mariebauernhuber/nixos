@@ -857,7 +857,7 @@ require("lazy").setup({
 	--  Uncomment any of the lines below to enable them (you will need to restart nvim).
 	--
 	require("kickstart.plugins.debug"),
-	-- require 'kickstart.plugins.indent_line',
+	require("kickstart.plugins.indent_line"),
 	require("kickstart.plugins.lint"),
 	require("kickstart.plugins.autopairs"),
 	-- require("kickstart.plugins.neo-tree"),
@@ -1142,11 +1142,6 @@ vim.g.vimtex_syntax_conceal = {
 	math_fracs = 1,
 	math_super_sub = 1,
 	math_symbols = 1,
-}
-
-vim.g.vimtex_compiler_latexmk = {
-	aux_dir = "/home/nils/.texfiles/",
-	out_dir = "/home/nils/.texfiles/",
 }
 
 vim.cmd.colorscheme("gruvbox")
