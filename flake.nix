@@ -31,6 +31,11 @@
 				    pkgs.qjackctl
 				    pkgs.streamcontroller
 				    pkgs.via
+				    pkgs.ryubing
+				    pkgs.ficsit-cli
+				    pkgs.satisfactorymodmanager
+				    pkgs.hyprpaper
+				    pkgs.blender
 				];
 				})
 				{
