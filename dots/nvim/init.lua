@@ -1144,6 +1144,11 @@ vim.g.vimtex_syntax_conceal = {
 	math_symbols = 1,
 }
 
+vim.g.vimtex_compiler_latexmk = {
+	aux_dir = "/home/nils/.texfiles/",
+	out_dir = "/home/nils/.texfiles/",
+}
+
 vim.cmd.colorscheme("gruvbox")
 
 vim.keymap.set("n", "<leader>fv", ":VimtexView<CR>", {
