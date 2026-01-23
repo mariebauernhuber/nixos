@@ -50,7 +50,7 @@
 	};
 
 	home.file = {
-		".config/hypr".source = ./dots/hypr;
+		".config/hypr".source = ./dots/hypr-t470s;
 		".config/waybar".source = ./dots/waybar;
 		".config/alacritty".source = ./dots/alacritty;
 		".config/ulauncher".source = ./dots/ulauncher;
