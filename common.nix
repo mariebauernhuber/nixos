@@ -109,6 +109,7 @@
   pavucontrol
   libnotify
   playerctl
+  openssl_3
   ];
 
 
