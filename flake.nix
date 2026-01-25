@@ -63,8 +63,13 @@
 					home-manager.users.nils = import ./home-t470s.nix;
 				}
 				({ pkgs, ... }: {
-				environment.systemPackages = [
-				];
+					environment.systemPackages = [
+						(pkgs.prismlauncher.override {
+							extraPkgs = pkgs: [
+								pkgs.openssl_3
+							];
+						})
+					];
 				})
 				{
 				services.auto-cpufreq.enable = true;
