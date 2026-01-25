@@ -36,6 +36,7 @@
 				    pkgs.satisfactorymodmanager
 				    pkgs.hyprpaper
 				    pkgs.blender
+				    pkgs.anki
 				];
 				})
 				{
