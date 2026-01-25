@@ -30,6 +30,13 @@
 
 	programs.htop.enable = true;
 
+	programs.prismlauncher = {
+	enable = true;
+	extraPackages = with pkgs; [
+	openssl_3
+	];
+	};
+
 	home.packages = with pkgs; [
 		nordzy-cursor-theme
 		nordzy-icon-theme
