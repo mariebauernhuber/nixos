@@ -64,11 +64,7 @@
 				}
 				({ pkgs, ... }: {
 					environment.systemPackages = [
-						(pkgs.prismlauncher.override {
-							extraPkgs = pkgs: [
-								pkgs.openssl_3
-							];
-						})
+					prismlauncher
 					];
 				})
 				{
