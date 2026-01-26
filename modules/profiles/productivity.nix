@@ -4,6 +4,7 @@
     # Productivity packages
     environment.systemPackages = with pkgs; [
 	neovim
+	Anki
 	tree-sitter
 	clang-tools
 	python315
