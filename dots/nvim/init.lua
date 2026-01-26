@@ -1146,7 +1146,7 @@ vim.g.vimtex_syntax_conceal = {
 
 vim.g.vimtex_compiler_latexmk = {
 	aux_dir = "/home/nils/.texfiles/",
-	out_dir = "/home/nils/.texfiles/",
+	out_dir = "",
 }
 
 vim.cmd.colorscheme("gruvbox")
