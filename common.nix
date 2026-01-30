@@ -97,12 +97,6 @@ xdg.desktopEntries.firefox = {
 
   programs.nix-ld.enable = true;
 
- xdg.portal = {
-   enable = true;
-   wlr.enable = true;
-   extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
-   config.common.default = "*";  # Let apps pick best backend
- };
 environment.sessionVariables.NUXT_XDG_RUNTIME_DIR = "/run/user/$UID";
 	programs.appimage = {
 	enable = true;
