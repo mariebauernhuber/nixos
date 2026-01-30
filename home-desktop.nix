@@ -42,7 +42,8 @@
 		fuse
 		icu
 	];
-
+	
+systemd.user.sessionVariables.PATH = pkgs.lib.makeBinPath [ pkgs.firefox pkgs.glib pkgs.xdg-utils ];
 	home.pointerCursor = {
 	    enable = true;
 	    gtk.enable = true;
