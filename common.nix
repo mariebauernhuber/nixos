@@ -110,6 +110,7 @@
   libnotify
   playerctl
   openssl_3
+  fuse
   ];
 
 
