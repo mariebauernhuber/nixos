@@ -8,6 +8,7 @@
       bottles
       prismlauncher  # Minecraft
       gamescope
+      osu-lazer
     ];
 
     # Enable Steam
