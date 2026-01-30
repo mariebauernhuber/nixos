@@ -21,6 +21,11 @@
 
 	programs.gh.enable = true;
 
+	programs.appimage = {
+	enable = true;
+	binfmt = true;
+	}
+
 	wayland.windowManager.hyprland = {
 		enable = true;
 		xwayland.enable = true;
