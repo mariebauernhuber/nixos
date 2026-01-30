@@ -83,12 +83,6 @@
   extraPortals = [ pkgs.xdg-desktop-portal-gtk pkgs.xdg-desktop-portal-wlr ];
 };
 
-# Critical: Ensure firefox.desktop exists for portals
-xdg.desktopEntries.firefox = {
-  name = "Firefox";
-  exec = "${pkgs.firefox}/bin/firefox %U";
-};
-
   hardware.graphics.enable = true;
 
   programs.firefox.enable = true;
