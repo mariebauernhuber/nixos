@@ -89,7 +89,6 @@
 
 	programs.appimage = {
 	enable = true;
-	binfmt = true;
 	};
 
   hardware.bluetooth.enable = true;
