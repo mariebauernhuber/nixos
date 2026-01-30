@@ -86,6 +86,11 @@
 
   programs.nix-ld.enable = true;
 
+ xdg.portal = {
+   enable = true;
+   wlr.enable = true;
+   extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+ };
 
 	programs.appimage = {
 	enable = true;
