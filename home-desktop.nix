@@ -40,6 +40,7 @@
 		unrar
 		appimage-run
 		fuse
+		icu
 	];
 
 	home.pointerCursor = {
