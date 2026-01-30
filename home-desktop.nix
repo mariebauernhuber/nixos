@@ -38,6 +38,7 @@
 		kdePackages.dolphin
 		kdePackages.ark
 		unrar
+		fuse
 	];
 
 	home.pointerCursor = {
