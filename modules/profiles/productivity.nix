@@ -19,9 +19,11 @@
 	sdl3-ttf
 	glew
 	glm
-	nix-ld
-	jdk17
     ];
+
+	programs.nix-ld.enable = true;
+	programs.nix-ld.libraries = [ pkgs.glibc pkgs.zlib ];
+
 
     # Home Manager productivity configs
     home-manager.users.nils = {
