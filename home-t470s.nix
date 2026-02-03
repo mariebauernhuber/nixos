@@ -5,6 +5,10 @@
 	home.homeDirectory = "/home/nils";
 	home.stateVersion = "24.11";
 
+	programs.nix-ld.enable = true;
+
+	home.packages = [ pkgs.jdk17 ];
+
 	programs.bash = {
 		enable = true;
 		shellAliases = {
