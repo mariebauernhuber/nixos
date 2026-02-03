@@ -435,7 +435,14 @@ require("lazy").setup({
 					},
 				},
 			})
-
+			lspconfig.ltex.setup({
+				settings = {
+					ltex = {
+						language = "de-DE",
+						enabled = { "latex", "tex" },
+					},
+				},
+			})
 			lspconfig.clangd.setup({
 				root_dir = require("lspconfig.util").root_pattern("compile_commands.json", ".git"),
 				cmd = {
@@ -680,6 +687,7 @@ require("lazy").setup({
 			local ensure_installed = vim.tbl_keys(servers or {})
 			vim.list_extend(ensure_installed, {
 				"stylua", -- Used to format Lua code
+				"ltex",
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
