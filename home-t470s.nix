@@ -7,8 +7,6 @@
 
 	programs.nix-ld.enable = true;
 
-	home.packages = [ pkgs.jdk17 ];
-
 	programs.bash = {
 		enable = true;
 		shellAliases = {
@@ -42,6 +40,7 @@
 		kdePackages.dolphin
 		kdePackages.ark
 		unrar
+		jdk17
 	];
 
 	home.pointerCursor = {
