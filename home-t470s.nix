@@ -40,6 +40,7 @@
 		kdePackages.dolphin
 		kdePackages.ark
 		unrar
+		nix-ld
 		jdk17
 	];
 
