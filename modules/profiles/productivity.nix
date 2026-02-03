@@ -19,6 +19,7 @@
 	sdl3-ttf
 	glew
 	glm
+	ltex-ls
     ];
 
 	programs.nix-ld.enable = true;
