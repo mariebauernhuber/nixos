@@ -19,6 +19,8 @@
 	sdl3-ttf
 	glew
 	glm
+	nix-ld
+	jdk17
     ];
 
     # Home Manager productivity configs

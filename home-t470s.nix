@@ -5,8 +5,6 @@
 	home.homeDirectory = "/home/nils";
 	home.stateVersion = "24.11";
 
-	programs.nix-ld.enable = true;
-
 	programs.bash = {
 		enable = true;
 		shellAliases = {
@@ -40,8 +38,6 @@
 		kdePackages.dolphin
 		kdePackages.ark
 		unrar
-		nix-ld
-		jdk17
 	];
 
 	home.pointerCursor = {
