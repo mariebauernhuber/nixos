@@ -20,6 +20,7 @@
 	glew
 	glm
 	ltex-ls
+	libreoffice-bin
     ];
 
 	programs.nix-ld.enable = true;
