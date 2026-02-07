@@ -19,7 +19,13 @@
 	sdl3-ttf
 	glew
 	glm
+	ltex-ls
+	libreoffice-bin
     ];
+
+	programs.nix-ld.enable = true;
+	programs.nix-ld.libraries = [ pkgs.glibc pkgs.zlib ];
+
 
     # Home Manager productivity configs
     home-manager.users.nils = {

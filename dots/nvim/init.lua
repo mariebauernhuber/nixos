@@ -435,7 +435,10 @@ require("lazy").setup({
 					},
 				},
 			})
-
+			require("lspconfig").ltex.setup({
+				cmd = { "ltex-ls" },
+				settings = { ltex = { language = "de-DE" } },
+			})
 			lspconfig.clangd.setup({
 				root_dir = require("lspconfig.util").root_pattern("compile_commands.json", ".git"),
 				cmd = {
