@@ -59,17 +59,4 @@
 		".config/ulauncher".source = ./dots/ulauncher;
 		".config/wofi".source = ./dots/wofi;
 	};
-
-xdg = {
-  portal = {
-    enable = true;
-    config.common.default = "gtk";
-  };
-  desktopEntries.firefox = {
-    name = "Firefox";
-    exec = "${pkgs.firefox}/bin/firefox %U";
-    mimeTypes = [ "text/html" "x-scheme-handler/http" "x-scheme-handler/https" ];
-  };
-};
-
 }
