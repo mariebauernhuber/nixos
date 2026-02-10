@@ -9,6 +9,7 @@
       prismlauncher  # Minecraft
       gamescope
       osu-lazer-bin
+      olympus
     ];
 
     # Enable Steam
