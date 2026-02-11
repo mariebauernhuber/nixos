@@ -9,7 +9,6 @@
     nwg-displays
     ulauncher
     teamspeak3
-    teamspeak6-client
     kdePackages.kdeconnect-kde
      (nwg-displays.overrideAttrs (old: {
     postInstall = ''
