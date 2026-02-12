@@ -41,7 +41,6 @@
 		appimage-run
 		fuse
 		icu
-		virtualbox
 	];
 	
 	home.pointerCursor = {
