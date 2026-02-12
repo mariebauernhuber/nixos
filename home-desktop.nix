@@ -60,5 +60,4 @@
 		".config/ulauncher".source = ./dots/ulauncher;
 		".config/wofi".source = ./dots/wofi;
 	};
-
 }
