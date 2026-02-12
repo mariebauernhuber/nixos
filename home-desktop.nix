@@ -41,7 +41,7 @@
 		appimage-run
 		fuse
 		icu
-		qemu
+		virtualbox
 	];
 	
 	home.pointerCursor = {
