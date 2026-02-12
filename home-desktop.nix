@@ -19,8 +19,6 @@
 
 	programs.wofi.enable = true;
 
-	programs.qemu.enable = true;
-
 	programs.gh.enable = true;
 
 	wayland.windowManager.hyprland = {
@@ -43,6 +41,7 @@
 		appimage-run
 		fuse
 		icu
+		qemu
 	];
 	
 	home.pointerCursor = {
