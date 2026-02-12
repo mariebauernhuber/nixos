@@ -8,7 +8,6 @@
     hyfetch
     nwg-displays
     ulauncher
-    teamspeak3
     kdePackages.kdeconnect-kde
      (nwg-displays.overrideAttrs (old: {
     postInstall = ''
