@@ -14,9 +14,6 @@
   networking.networkmanager.enable = true;
   networking.wireless.enable = true;
 
-   virtualisation.virtualbox.host.enable = true;
-   users.extraGroups.vboxusers.members = [ "user-with-access-to-virtualbox" ];
-
   time.timeZone = "Europe/Berlin";
 
   # Select internationalisation properties.
