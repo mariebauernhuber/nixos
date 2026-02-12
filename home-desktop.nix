@@ -19,6 +19,8 @@
 
 	programs.wofi.enable = true;
 
+	programs.qemu.enable = true;
+
 	programs.gh.enable = true;
 
 	wayland.windowManager.hyprland = {
