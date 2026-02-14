@@ -402,6 +402,47 @@ require("lazy").setup({
 			"saghen/blink.cmp",
 		},
 		config = function()
+			local lspconfig = require("lspconfig")
+			lspconfig.clangd.setup({
+				cmd = {
+					"clangd",
+					"--query-driver=/run/current-system/sw/bin/g++,/run/current-system/sw/bin/clang++", -- Example for NixOS
+					"--background-index",
+					"--clang-tidy",
+				},
+				root_dir = require("lspconfig.util").root_pattern("compile_commands.json", ".git"),
+			})
+			lspconfig.texlab.setup({
+				settings = {
+					texlab = {
+						build = {
+							executable = "latexmk",
+							args = { "-pdf", "-interaction=nonstopmode", "-synctex=1", "%f" },
+							onSave = true,
+						},
+						diagnostics = {
+							ignoredPatterns = { "Overfull", "Underfull" },
+						},
+						forwardSearch = {
+							executable = "zathura", -- or skim, sioyek, okular
+							args = { "--synctex-forward", "%l:1:%f", "%p" },
+						},
+					},
+				},
+			})
+			require("lspconfig").ltex.setup({
+				cmd = { "ltex-ls" },
+				settings = { ltex = { language = "de-DE" } },
+			})
+			lspconfig.clangd.setup({
+				root_dir = require("lspconfig.util").root_pattern("compile_commands.json", ".git"),
+				cmd = {
+					"clangd",
+					"--background-index",
+					"--clang-tidy",
+					"--query-driver=/nix/store/*/bin/g++",
+				},
+			})
 			-- Brief aside: **What is LSP?**
 			--
 			-- LSP is an initialism you've probably heard, but might not understand what it is.
