@@ -1178,35 +1178,60 @@ vim.keymap.set("n", "<leader>fv", ":VimtexView<CR>", {
 local term_state = { buf = nil, win = nil }
 
 local function toggle_float_term()
+	-- Close if open
 	if term_state.win and vim.api.nvim_win_is_valid(term_state.win) then
 		vim.api.nvim_win_close(term_state.win, true)
 		term_state.win = nil
 		return
 	end
 
-	-- Create buffer
-	term_state.buf = vim.api.nvim_create_buf(false, true)
-	vim.api.nvim_buf_set_option(term_state.buf, "buftype", "terminal")
-	vim.api.nvim_buf_set_option(term_state.buf, "bufhidden", "wipe")
+	-- Create scratch terminal buffer
+	if not term_state.buf or not vim.api.nvim_buf_is_valid(term_state.buf) then
+		term_state.buf = vim.api.nvim_create_buf(false, true)
+		vim.bo[term_state.buf].buftype = "terminal"
+		vim.bo[term_state.buf].bufhidden = "wipe"
+	end
 
-	-- Window config
+	-- Floating window config (70% width, 60% height, centered)
+	local width = math.floor(vim.o.columns * 0.7)
+	local height = math.floor(vim.o.lines * 0.6)
 	local cfg = {
 		relative = "editor",
-		width = math.floor(vim.o.columns * 0.7),
-		height = math.floor(vim.o.lines * 0.6),
-		col = math.floor(vim.o.columns * 0.15),
-		row = math.floor(vim.o.lines * 0.15),
-		border = "rounded",
+		width = width,
+		height = height,
+		row = math.floor((vim.o.lines - height) / 2),
+		col = math.floor((vim.o.columns - width) / 2),
 		style = "minimal",
+		border = "rounded",
 	}
 
-	-- Open window
+	-- Open and focus window
 	term_state.win = vim.api.nvim_open_win(term_state.buf, true, cfg)
 
-	-- Start terminal
-	vim.api.nvim_chan_send(vim.api.nvim_open_term(term_state.buf, {}), "")
+	-- Ensure terminal is running (start shell if needed)
+	if vim.bo[term_state.buf].channel == 0 then
+		vim.api.nvim_open_term(term_state.buf, {
+			on_open = function()
+				vim.cmd("startinsert!")
+			end,
+		})
+	end
 end
 
+-- Autocmds for cleanup
+local group = vim.api.nvim_create_augroup("FloatTerm", { clear = true })
+vim.api.nvim_create_autocmd({ "BufDelete", "WinClosed" }, {
+	group = group,
+	buffer = term_state.buf,
+	callback = function()
+		term_state.win = nil
+	end,
+})
+
+-- Keymap
+vim.keymap.set("n", "<leader>ot", toggle_float_term, {
+	desc = "Toggle floating terminal",
+})
 -- Keymap
 vim.keymap.set("n", "<leader>ot", toggle_float_term, { desc = "Toggle floating terminal" })
 vim.keymap.set("n", "<A-h>", "<cmd>BufferLineCyclePrev<cr>")
