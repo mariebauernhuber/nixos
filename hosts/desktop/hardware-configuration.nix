@@ -14,35 +14,18 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/7797a516-4a7a-4888-9a95-3079803d7bda";
+    { device = "/dev/disk/by-uuid/777dc77c-e21d-4b71-9bde-73453914841b";
       fsType = "ext4";
     };
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/A94C-AC77";
+    { device = "/dev/disk/by-uuid/219B-30EA";
       fsType = "vfat";
-      options = [ "fmask=0077" "dmask=0077" ];
+      options = [ "fmask=0022" "dmask=0022" ];
     };
 
-    fileSystems."/tmp" = {
-	  device = "tmpfs";
-	  fsType = "tmpfs";
-	  options = [ "defaults" "size=2G" "mode=1777" ];  # Removes noexec
-	};
-
-   fileSystems."/mnt/2TBHDD" = {
-	device = "/dev/disk/by-uuid/144353bc-75d5-491a-b0b9-d21b170e1ddd";
-	fsType = "ext4";
-   };
-
-   fileSystems."/mnt/1TBHDD" = {
-	device = "/dev/disk/by-uuid/231d01d4-a7aa-4d2a-9cb3-658e47ccfbde";
-	fsType = "ext4";
-   };
-
-
   swapDevices =
-    [ { device = "/dev/disk/by-uuid/2395c5c7-bfc3-40af-98f1-1daff7ea7e32"; }
+    [ { device = "/dev/disk/by-uuid/57db3ac8-5bf6-44dc-9b7b-34665085bd6b"; }
     ];
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";

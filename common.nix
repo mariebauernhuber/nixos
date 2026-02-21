@@ -120,6 +120,7 @@ environment.sessionVariables.NUXT_XDG_RUNTIME_DIR = "/run/user/$UID";
   libnotify
   playerctl
   openssl_3
+  fluffychat
   ];
 
 
