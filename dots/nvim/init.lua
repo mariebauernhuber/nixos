@@ -1178,66 +1178,48 @@ vim.keymap.set("n", "<leader>fv", ":VimtexView<CR>", {
 local term_state = { buf = nil, win = nil }
 
 local function toggle_float_term()
-  -- Close if open
-  if term_state.win and vim.api.nvim_win_is_valid(term_state.win) then
-    vim.api.nvim_win_close(term_state.win, true)
-    term_state.win = nil
-    return
-  end
+	-- Close if open
+	if term_state.win and vim.api.nvim_win_is_valid(term_state.win) then
+		vim.api.nvim_win_close(term_state.win, true)
+		term_state.win = nil
+		return
+	end
 
-  -- Create scratch terminal buffer
-  if not term_state.buf or not vim.api.nvim_buf_is_valid(term_state.buf) then
-    term_state.buf = vim.api.nvim_create_buf(false, true)
-    vim.api.nvim_buf_set_option(term_state.buf, 'buftype', 'terminal')
-    vim.api.nvim_buf_set_option(term_state.buf, 'bufhidden', 'wipe')
-  end
+	-- Create scratch terminal buffer
+	if not term_state.buf or not vim.api.nvim_buf_is_valid(term_state.buf) then
+		term_state.buf = vim.api.nvim_create_buf(false, true)
+		vim.api.nvim_buf_set_option(term_state.buf, "buftype", "terminal")
+		-- Removed bufhidden - invalid for terminal buffers
+	end
 
-  -- Floating window config (70% width, 60% height, centered)
-  local width = math.floor(vim.o.columns * 0.7)
-  local height = math.floor(vim.o.lines * 0.6 - 1)  -- -1 for border
-  local row = math.floor((vim.o.lines - height) / 2)
-  local col = math.floor((vim.o.columns - width) / 2)
-  
-  local cfg = {
-    relative = 'editor',
-    width = width,
-    height = height,
-    row = row,
-    col = col,
-    style = 'minimal',
-    border = 'rounded'
-  }
+	-- Floating window config (centered)
+	local width = math.floor(vim.o.columns * 0.7)
+	local height = math.floor(vim.o.lines * 0.6 - 1)
+	local row = math.floor((vim.o.lines - height) / 2)
+	local col = math.floor((vim.o.columns - width) / 2)
 
-  -- Open and focus window
-  term_state.win = vim.api.nvim_open_win(term_state.buf, true, cfg)
-  
-  -- Start terminal job if not running
-  if vim.api.nvim_buf_is_valid(term_state.buf) then
-    vim.api.nvim_open_term(term_state.buf, {})
-    vim.cmd('startinsert!')
-  end
-end
+	local cfg = {
+		relative = "editor",
+		width = width,
+		height = height,
+		row = row,
+		col = col,
+		style = "minimal",
+		border = "rounded",
+	}
 
--- Cleanup autocmd (only after buffer exists)
-local function setup_autocmds()
-  if not term_state.buf then return end
-  
-  local group = vim.api.nvim_create_augroup('FloatTerm', { clear = true })
-  vim.api.nvim_create_autocmd({ 'BufDelete', 'WinClosed' }, {
-    group = group,
-    buffer = term_state.buf,
-    callback = function()
-      term_state.win = nil
-    end,
-  })
+	-- Open window
+	term_state.win = vim.api.nvim_open_win(term_state.buf, true, cfg)
+
+	-- Start terminal
+	vim.api.nvim_open_term(term_state.buf, {})
+	vim.cmd("startinsert!")
 end
 
 -- Keymap
-vim.keymap.set('n', '<leader>ot', function()
-  toggle_float_term()
-  if term_state.buf then setup_autocmds() end
-end, { desc = 'Toggle floating term' } )
-
+vim.keymap.set("n", "<leader>ot", toggle_float_term, {
+	desc = "Toggle floating terminal",
+})
 
 -- Keymap
 vim.keymap.set("n", "<leader>ot", toggle_float_term, {
