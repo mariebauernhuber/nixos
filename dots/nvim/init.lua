@@ -1236,7 +1236,9 @@ end
 vim.keymap.set('n', '<leader>ot', function()
   toggle_float_term()
   if term_state.buf then setup_autocmds() end
-end, { desc = 'Toggle floating term
+end, { desc = 'Toggle floating term' } )
+
+
 -- Keymap
 vim.keymap.set("n", "<leader>ot", toggle_float_term, {
 	desc = "Toggle floating terminal",
