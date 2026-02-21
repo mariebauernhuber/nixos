@@ -1185,16 +1185,14 @@ local function toggle_float_term()
 		return
 	end
 
-	-- Create scratch terminal buffer
+	-- Create plain scratch buffer (no buftype yet)
 	if not term_state.buf or not vim.api.nvim_buf_is_valid(term_state.buf) then
 		term_state.buf = vim.api.nvim_create_buf(false, true)
-		vim.api.nvim_buf_set_option(term_state.buf, "buftype", "terminal")
-		-- Removed bufhidden - invalid for terminal buffers
 	end
 
-	-- Floating window config (centered)
+	-- Window config
 	local width = math.floor(vim.o.columns * 0.7)
-	local height = math.floor(vim.o.lines * 0.6 - 1)
+	local height = math.floor(vim.o.lines * 0.6)
 	local row = math.floor((vim.o.lines - height) / 2)
 	local col = math.floor((vim.o.columns - width) / 2)
 
@@ -1208,10 +1206,10 @@ local function toggle_float_term()
 		border = "rounded",
 	}
 
-	-- Open window
+	-- Open window FIRST
 	term_state.win = vim.api.nvim_open_win(term_state.buf, true, cfg)
 
-	-- Start terminal
+	-- THEN start terminal (this sets buftype=terminal automatically)
 	vim.api.nvim_open_term(term_state.buf, {})
 	vim.cmd("startinsert!")
 end
@@ -1221,12 +1219,6 @@ vim.keymap.set("n", "<leader>ot", toggle_float_term, {
 	desc = "Toggle floating terminal",
 })
 
--- Keymap
-vim.keymap.set("n", "<leader>ot", toggle_float_term, {
-	desc = "Toggle floating terminal",
-})
--- Keymap
-vim.keymap.set("n", "<leader>ot", toggle_float_term, { desc = "Toggle floating terminal" })
 vim.keymap.set("n", "<A-h>", "<cmd>BufferLineCyclePrev<cr>")
 vim.keymap.set("n", "<A-l>", "<cmd>BufferLineCycleNext<cr>")
 vim.keymap.set("n", "<leader>bp", "<cmd>BufferLineTogglePin<cr>") -- Pin master.tex
