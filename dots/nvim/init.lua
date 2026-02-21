@@ -1174,6 +1174,41 @@ vim.keymap.set("n", "<leader>fv", ":VimtexView<CR>", {
 	silent = true, -- No command echo
 })
 
+-- Floating terminal toggle with <leader>ot
+local term_state = { buf = nil, win = nil }
+
+local function toggle_float_term()
+	if term_state.win and vim.api.nvim_win_is_valid(term_state.win) then
+		vim.api.nvim_win_close(term_state.win, true)
+		term_state.win = nil
+		return
+	end
+
+	-- Create buffer
+	term_state.buf = vim.api.nvim_create_buf(false, true)
+	vim.api.nvim_buf_set_option(term_state.buf, "buftype", "terminal")
+	vim.api.nvim_buf_set_option(term_state.buf, "bufhidden", "wipe")
+
+	-- Window config
+	local cfg = {
+		relative = "editor",
+		width = math.floor(vim.o.columns * 0.7),
+		height = math.floor(vim.o.lines * 0.6),
+		col = math.floor(vim.o.columns * 0.15),
+		row = math.floor(vim.o.lines * 0.15),
+		border = "rounded",
+		style = "minimal",
+	}
+
+	-- Open window
+	term_state.win = vim.api.nvim_open_win(term_state.buf, true, cfg)
+
+	-- Start terminal
+	vim.api.nvim_chan_send(vim.api.nvim_open_term(term_state.buf, {}), "")
+end
+
+-- Keymap
+vim.keymap.set("n", "<leader>ot", toggle_float_term, { desc = "Toggle floating terminal" })
 vim.keymap.set("n", "<A-h>", "<cmd>BufferLineCyclePrev<cr>")
 vim.keymap.set("n", "<A-l>", "<cmd>BufferLineCycleNext<cr>")
 vim.keymap.set("n", "<leader>bp", "<cmd>BufferLineTogglePin<cr>") -- Pin master.tex
