@@ -8,7 +8,6 @@
     hyfetch
     nwg-displays
     ulauncher
-    kdePackages.kdeconnect-kde
      (nwg-displays.overrideAttrs (old: {
     postInstall = ''
       wrapProgram $out/bin/nwg-displays \
@@ -16,6 +15,8 @@
     '';
   }))
     ];
+
+    programs.kdeconnect.enable = true;
 
     home-manager.users.nils = {
 
