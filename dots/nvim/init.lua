@@ -21,7 +21,6 @@ vim.o.relativenumber = true
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = "a"
 
--- Don't show the mode, since it's already in the status line
 vim.o.showmode = true
 
 -- Sync clipboard between OS and Neovim.
@@ -434,10 +433,6 @@ require("lazy").setup({
 						},
 					},
 				},
-			})
-			require("lspconfig").ltex.setup({
-				cmd = { "ltex-ls" },
-				settings = { ltex = { language = "de-DE" } },
 			})
 			lspconfig.clangd.setup({
 				root_dir = require("lspconfig.util").root_pattern("compile_commands.json", ".git"),
@@ -1146,7 +1141,7 @@ end
 -- Disable vimtex syntax highlighting because im using treesitter for that :3
 vim.g.vimtex_syntax_enabled = 0
 vim.opt.title = true
-vim.opt.titlestring = "NeoVIM: Editing %f in mode %{v:lua.vim.fn.mode()}"
+vim.opt.titlestring = "neovim: Editing %f in mode %{v:lua.vim.fn.mode()}"
 
 vim.opt.conceallevel = 2
 vim.opt.concealcursor = ""
@@ -1167,56 +1162,11 @@ vim.g.vimtex_compiler_latexmk = {
 	out_dir = "",
 }
 
-vim.cmd.colorscheme("gruvbox")
+vim.cmd.colorscheme("default")
 
 vim.keymap.set("n", "<leader>fv", ":VimtexView<CR>", {
 	desc = "Vimtex View (open PDF)",
 	silent = true, -- No command echo
-})
-
--- Floating terminal toggle with <leader>ot
-local term_state = { buf = nil, win = nil }
-
-local function toggle_float_term()
-	-- Close if open
-	if term_state.win and vim.api.nvim_win_is_valid(term_state.win) then
-		vim.api.nvim_win_close(term_state.win, true)
-		term_state.win = nil
-		return
-	end
-
-	-- Create plain scratch buffer (no buftype yet)
-	if not term_state.buf or not vim.api.nvim_buf_is_valid(term_state.buf) then
-		term_state.buf = vim.api.nvim_create_buf(false, true)
-	end
-
-	-- Window config
-	local width = math.floor(vim.o.columns * 0.7)
-	local height = math.floor(vim.o.lines * 0.6)
-	local row = math.floor((vim.o.lines - height) / 2)
-	local col = math.floor((vim.o.columns - width) / 2)
-
-	local cfg = {
-		relative = "editor",
-		width = width,
-		height = height,
-		row = row,
-		col = col,
-		style = "minimal",
-		border = "rounded",
-	}
-
-	-- Open window FIRST
-	term_state.win = vim.api.nvim_open_win(term_state.buf, true, cfg)
-
-	-- THEN start terminal (this sets buftype=terminal automatically)
-	vim.api.nvim_open_term(term_state.buf, {})
-	vim.cmd("startinsert!")
-end
-
--- Keymap
-vim.keymap.set("n", "<leader>ot", toggle_float_term, {
-	desc = "Toggle floating terminal",
 })
 
 vim.keymap.set("n", "<A-h>", "<cmd>BufferLineCyclePrev<cr>")
