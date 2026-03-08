@@ -26,7 +26,6 @@
 				({ pkgs, ... }: {
 				environment.systemPackages = [
 				    pkgs.goxlr-utility
-				    pkgs.helvum
 				    pkgs.pavucontrol
 				    pkgs.qjackctl
 				    pkgs.streamcontroller

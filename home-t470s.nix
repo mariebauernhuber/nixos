@@ -34,7 +34,6 @@
 		nordzy-cursor-theme
 		nordzy-icon-theme
 		ripgrep
-		wineWowPackages.stable
 		kdePackages.dolphin
 		kdePackages.ark
 		unrar
