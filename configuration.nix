@@ -1,7 +1,10 @@
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, inputs, ... }:
 
 {
-	imports = [ ./hardware-configuration.nix ];
+	imports = [
+		./hardware-configuration.nix 
+		inputs.home-manager.nixosModules.default
+	];
 
 	nix.settings.experimental-features = [ "nix-command" "flakes"];
 
@@ -14,16 +17,21 @@
 
 	time.timeZone = "Europe/Berlin";
 
-	services.pulseaudio.enable = true;
-
 	programs.hyprland.enable = true;
 
 	users.users.nille = {
 		isNormalUser = true;
 		extraGroups = [ "wheel" "input" ];
 		packages = with pkgs; [
-			tree
+			
 		];
+	};
+
+	home-manager = {
+		extraSpecialArgs = {inherit inputs;};
+		users = {
+			"nille" = import ./home.nix;
+		};
 	};
 
 	environment.systemPackages = with pkgs; [
