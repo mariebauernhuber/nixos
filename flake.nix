@@ -9,13 +9,12 @@
 		};
 	};
 
-  outputs = { self, nixpkgs }:
+  outputs = { self, nixpkgs, ...}@inputs:
   let
     system = "x86_64-linux";
   in {
     nixosConfigurations.puppybox = nixpkgs.lib.nixosSystem {
-      inherit system;
-	extraSpecialArgs = {inherit inputs;};
+      specialArgs = {inherit inputs;};
       modules = [
         ./configuration.nix
 	inputs.home-manager.nixosModules.default
