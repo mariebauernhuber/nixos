@@ -12,6 +12,10 @@
 		pkgs.gh
 		pkgs.wofi
 		pkgs.goxlr-utility
+		pkgs.pavucontrol
+		pkgs.streamcontroller
+		pkgs.kdePackages.dolphin
+		pkgs.steam
 	];
 
 	home.sessionVariables = {
