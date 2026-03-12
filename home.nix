@@ -6,6 +6,8 @@
 
 	home.stateVersion = "25.11"; # DONT CHANGE
 
+	nixpkgs.config.allowUnfree = true;
+
 	home.packages = [
 		pkgs.firefox
 		pkgs.neovim

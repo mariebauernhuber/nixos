@@ -23,6 +23,13 @@
 
 	services.displayManager.ly.enable = true;
 
+	hardware.graphics.enable = true;
+	hardware.nvidia.modesetting.enable = true;
+	hardware.nvidia.open = true;
+	hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+	services.flatpak.enable = true;
+
 	users.users.nille = {
 		isNormalUser = true;
 		extraGroups = [ "wheel" "input" ];
