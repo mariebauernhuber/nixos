@@ -19,11 +19,14 @@
 
 	programs.hyprland.enable = true;
 
+	services.displayManager.ly.enable = true;
+
 	users.users.nille = {
 		isNormalUser = true;
 		extraGroups = [ "wheel" "input" ];
 		packages = with pkgs; [
-			
+			nordzy-cursor-theme
+			nordzy-icon-theme
 		];
 	};
 
@@ -36,7 +39,6 @@
 
 	environment.systemPackages = with pkgs; [
 		git
-		vim
 		wget
 		kitty
 	];
