@@ -1,6 +1,9 @@
 { config, lib, pkgs, ... }:
+
 {
 	imports = [ ./hardware-configuration.nix ];
+
+	nix.settings.experimental-features = [ "nix-command" "flakes"];
 
 	boot.loader.systemd-boot.enable = true;
 	boot.loader.efi.canTouchEfiVariables = true;
@@ -17,7 +20,7 @@
 
 	users.users.nille = {
 		isNormalUser = true;
-		extraGroups = [ "wheel" "input" ]; # Enable ‘sudo’ for the user.
+		extraGroups = [ "wheel" "input" ];
 		packages = with pkgs; [
 			tree
 		];
@@ -25,12 +28,12 @@
 
 	environment.systemPackages = with pkgs; [
 		git
-		neovim
+		vim
 		wget
 		kitty
 	];
 
 	networking.firewall.enable = false;
 
-	system.stateVersion = "26.05"; #DONT CHANGE UNLESS YOU KNOW WHAT YOURE DOING
+	system.stateVersion = "26.05"; #DONT CHANGE UNLESS YOU KNOW WHAT YOURE DOING!
 }
