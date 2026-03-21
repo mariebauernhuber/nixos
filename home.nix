@@ -17,7 +17,13 @@
 		pkgs.pavucontrol
 		pkgs.streamcontroller
 		pkgs.kdePackages.dolphin
-		pkgs.steam
+		pkgs.hyprshot
+		pkgs.prismlauncher
+		pkgs.osu-lazer-bin
+		pkgs.obs-studio
+		pkgs.satisfactorymodmanager
+		pkgs.wine
+		pkgs.gnome-disk-utility
 	];
 
 	home.sessionVariables = {

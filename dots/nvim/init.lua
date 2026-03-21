@@ -410,7 +410,7 @@ require("lazy").setup({
 			lspconfig.clangd.setup({
 				cmd = {
 					"clangd",
-					"--query-driver=/run/current-system/sw/bin/g++,/run/current-system/sw/bin/clang++", -- Example for NixOS
+					"--query-driver=/run/current-system/sw/bin/gcc,/run/current-system/sw/bin/clang", -- Example for NixOS
 					"--background-index",
 					"--clang-tidy",
 				},

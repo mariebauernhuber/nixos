@@ -23,10 +23,20 @@
 
 	services.displayManager.ly.enable = true;
 
+	hardware.nvidia = {
+	    modesetting.enable = true;
+	    powerManagement.enable = false;  # Optional: disable if issues
+	    powerManagement.finegrained = false;
+	    open = false;  # Use proprietary for Steam compatibility
+	    nvidiaSettings = true;
+	    package = config.boot.kernelPackages.nvidiaPackages.stable;  # Or .latest
+	  };
+
 	hardware.graphics.enable = true;
-	hardware.nvidia.modesetting.enable = true;
-	hardware.nvidia.open = true;
-	hardware.nvidia.package = config.boot.kernelPackages.nvidiaPackages.stable;
+
+	  services.xserver.videoDrivers = [ "nvidia" ];
+
+	programs.steam.enable = true;
 
 	services.flatpak.enable = true;
 
