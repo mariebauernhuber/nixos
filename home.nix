@@ -23,7 +23,9 @@
 		pkgs.obs-studio
 		pkgs.satisfactorymodmanager
 		pkgs.wine
-		pkgs.gnome-disk-utility
+		pkgs.lutris
+		pkgs.javaPackages.compiler.openjdk21
+		pkgs.python315
 	];
 
 	home.sessionVariables = {
